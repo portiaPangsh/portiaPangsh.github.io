@@ -566,17 +566,19 @@
             <div class="hero-subtitle">Hello, I'm</div>
             <h1 class="hero-title">Shuhao <span class="highlight">Pang</span></h1>
             <p class="hero-description">
-                <strong>Call me Portia.</strong> Senior Full-Stack Engineer crafting scalable membership platforms, 
-                shopping cart solutions, and payment systems that power cultural institutions and tourism experiences 
-                globally across North America, Europe, the UK, and Australia.
+                <strong>Call me Portia.</strong> Full-stack engineer with 5 years of end-to-end ownership across payment infrastructure,
+                multi-tenant platform architecture, and cloud-native systems — progressing from Software Engineer to Senior in 3 years
+                at a high-growth B2B SaaS company. Architected production systems from zero to one, including a multi-tenant membership
+                platform and a high-availability payment infrastructure serving clients such as Statue of Liberty, Niagara Falls,
+                Alcatraz, and San Diego Zoo.
             </p>
             <div class="hero-tags">
                 <span class="tag">Full-Stack Development</span>
                 <span class="tag">Cloud Architecture</span>
                 <span class="tag">Membership Platforms</span>
                 <span class="tag">Payment Systems</span>
-                <span class="tag">E-commerce Solutions</span>
-                <span class="tag">AWS Certified</span>
+                <span class="tag">AWS Serverless</span>
+                <span class="tag">React / Node.js / TypeScript</span>
             </div>
         </div>
     </section>
@@ -590,16 +592,22 @@
                 <div class="experience-header">
                     <div>
                         <h3 class="experience-title">Senior Software Engineer</h3>
-                        <p class="experience-company">Hornblower (Anchor Operating System)</p>
+                        <p class="experience-company">Anchor Operating System</p>
                     </div>
                     <span class="experience-period">Jan. 2024 - Present</span>
                 </div>
                 <ul class="experience-list">
-                    <li>Engineered complete membership platform supporting the backbone revenue model for cultural institutions, facilitating member acquisition, retention, and engagement through automated renewals, exclusive access, and tiered benefit systems while providing revenue stability and enabling tracking of 40-60% higher member spending on additional purchases</li>
-                    <li>Built comprehensive back-end automation system handling subscription renewals, automated email notifications, payment failure recovery with grace period logic, and multi-gateway payment processing across Chase, Stripe, Authorize.net, Worldline, and Elavon platforms</li>
-                    <li>Developed unified checkout integration that consolidates multiple tour bookings into single-charge transactions, reducing payment friction to drive increased revenue through simplified multi-tour purchasing while affecting 100% of orders processed through the Anchor platform</li>
-                    <li>Solely developed comprehensive revenue management dashboard for Anchor clients, automating invoice generation and Stripe payment processing while providing real-time revenue tracking, guest account analytics, and predictive revenue forecasting to streamline financial operations</li>
-                    <li>Engineered comprehensive payment processing system integrating multiple gateways (Stripe, Authorize.net, Chase, Elavon, Worldline, Apple Pay, Google Pay) with support for recurring billing, multi-currency transactions, automated refund processing, and PCI-compliant webhook handling with failure retry mechanisms</li>
+                    <li>Sole designer and implementer of a multi-tenant Membership Management System serving 10+ tourism properties, supporting 800K+ active memberships and over $100M in annual recurring revenue. Led the full lifecycle — requirements gathering, schema design, implementation, and zero-downtime production rollout via a versioned routing layer replacing the legacy system with full backward compatibility.</li>
+                    <li>Designed an 8-entity single-table DynamoDB schema managing 7M+ records; utilized 3 GSIs and composite sort keys to support 5+ access patterns, achieving consistent single-digit millisecond (&lt;10ms) query latency.</li>
+                    <li>Implemented a 6-phase membership purchase pipeline handling new purchases, renewals, upgrades, and downgrades with deterministic action validation and automated benefit allocation.</li>
+                    <li>Built a lazy-evaluation benefit system with configurable accrual rules and expiry-based recovery, eliminating 20+ daily heavy cron jobs and reducing database read load by ~40% while keeping balances always current.</li>
+                    <li>Developed cryptographic card number generation using a Feistel cipher with Luhn check digits — globally unique without external coordination.</li>
+                    <li>Built an event-driven async processing layer on SQS for purchase orchestration, report generation, and CRM integration.</li>
+                    <li>Architected a high-availability payment platform integrating Stripe, Chase, and Authorize.net. Implemented idempotent webhook processing and automated fault-recovery, achieving 100% financial data consistency across distributed environments.</li>
+                    <li>Owned and built a back-end automation engine for global subscription lifecycle management using AWS Lambda and SQS — eliminating 100% of manual payment failure intervention and supporting a 40–60% increase in transaction volume.</li>
+                    <li>Designed a transaction integration layer consolidating fragmented booking flows into atomic, performant service calls, processing 100% of platform orders with improved throughput and stability at peak traffic.</li>
+                    <li>Built a full-stack revenue management dashboard with real-time telemetry, guest analytics, and predictive forecasting — enabling engineering and finance to proactively detect bottlenecks and financial discrepancies.</li>
+                    <li>Provisioned and maintained cloud infrastructure via Terraform across Lambda, DynamoDB, S3, and AppSync, ensuring reproducible, secure environments aligned with CNCF best practices.</li>
                 </ul>
             </div>
 
@@ -607,27 +615,27 @@
                 <div class="experience-header">
                     <div>
                         <h3 class="experience-title">Software Engineer II</h3>
-                        <p class="experience-company">Hornblower</p>
+                        <p class="experience-company">Anchor Operating System</p>
                     </div>
                     <span class="experience-period">Jun. 2022 - Jan. 2024</span>
                 </div>
                 <ul class="experience-list">
-                    <li>Engineered dynamic cart editing capabilities with integrated UI and API functionality, enabling customers to modify tour selections, adjust booking dates, and update cart contents without restarting the purchase flow</li>
-                    <li>Developed ML-powered pricing integration that analyzes weather conditions, real-time sales data, capacity constraints, and demand signals to dynamically optimize ticket pricing for cruises and events, strategically creating purchase incentives that drive customer conversion and revenue growth</li>
+                    <li>Engineered a dynamic cart state-management engine enabling real-time API-driven modifications without disrupting the user session lifecycle. Reduced redundant compute cycles through optimized UI-to-API synchronization.</li>
+                    <li>Led the design and delivery of comprehensive automated integration test suites for core API services and SDK components across multiple teams, validating end-to-end system reliability and maintaining 99.9% uptime for critical customer-facing flows.</li>
                 </ul>
             </div>
 
             <div class="experience-card fade-in">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Junior Software Engineer</h3>
-                        <p class="experience-company">Hornblower</p>
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <p class="experience-company">Anchor Operating System</p>
                     </div>
                     <span class="experience-period">Jul. 2021 - Jun. 2022</span>
                 </div>
                 <ul class="experience-list">
-                    <li>Designed a comprehensive itinerary bundling feature enabling customers to manage all purchases in a centralized interface, aggregating itinerary contents for 100% of orders processed through the system</li>
-                    <li>Authored automated integration tests for API services and SDK components, focusing on high-impact customer flows to validate end-to-end functionality and maintain service reliability</li>
+                    <li>Designed and implemented a centralized itinerary bundling engine aggregating data for 100% of system-wide orders, ensuring consistency across multiple service modules and eliminating data fragmentation.</li>
+                    <li>Built the automated integration testing framework adopted across core API services and SDK components — reducing regression risk and establishing the reliability baseline for platform-wide deployments.</li>
                 </ul>
             </div>
         </div>
@@ -655,6 +663,8 @@
                 <div class="skill-tags">
                     <span class="skill-tag">React</span>
                     <span class="skill-tag">Redux</span>
+                    <span class="skill-tag">HTML5/CSS3</span>
+                    <span class="skill-tag">Responsive UI</span>
                     <span class="skill-tag">React Router</span>
                     <span class="skill-tag">GraphQL</span>
                     <span class="skill-tag">WebSockets</span>
@@ -668,6 +678,17 @@
                     <span class="skill-tag">REST APIs</span>
                     <span class="skill-tag">GraphQL</span>
                     <span class="skill-tag">API Gateway</span>
+                    <span class="skill-tag">Event-Driven Architecture</span>
+                    <span class="skill-tag">Microservices</span>
+                </div>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3>Data Modeling</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">DynamoDB Single-Table Design</span>
+                    <span class="skill-tag">Multi-Tenant Architecture</span>
+                    <span class="skill-tag">Schema Design</span>
                 </div>
             </div>
 
