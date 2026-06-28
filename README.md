@@ -1,17 +1,26 @@
-# Personal Portfolio Website
+# Product Systems Portfolio
 
-My professional portfolio showcasing my work as a Senior Full-Stack Engineer.
+Personal website for Shuhao Pang (Portia), repositioned from a resume-style full-stack engineer page into an annotated product systems portfolio.
 
-🌐 **Live Site:** [portiapangsh.github.io](https://portiapangsh.github.io)
+Live site: [www.shuhao-pang.com](https://www.shuhao-pang.com)
 
----
+## Positioning
 
-### Built With
+I turn messy workflows into product systems people can trust.
+
+The site focuses on public-safe summaries of product systems work across:
+
+- Membership Platform
+- Payment Infrastructure
+- Member Portal / Checkout
+- Recreated and anonymized UI mini-surfaces
+- Projects and labs
+- AI-assisted engineering workflow
+
+## Built With
+
 - HTML5
 - CSS3
 - JavaScript
 
-### Features
-- Responsive design
-- Downloadable resume
-- Interactive UI with smooth animations
+No framework or build tooling is used in this phase.
