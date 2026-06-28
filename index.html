@@ -281,12 +281,13 @@
         .hello-note {
             display: inline-block;
             margin-bottom: 1.1rem;
+            font-size: clamp(1.4rem, 2.1vw, 1.9rem);
             transform: rotate(-2deg);
         }
 
         .hero-title {
             max-width: 760px;
-            font-size: clamp(3.8rem, 5vw, 6rem);
+            font-size: clamp(3.4rem, 4.5vw, 5.4rem);
             font-weight: 700;
             letter-spacing: -0.055em;
             line-height: 0.98;
@@ -627,7 +628,7 @@
         }
 
         .section-title {
-            font-size: clamp(2.4rem, 4.8vw, 5rem);
+            font-size: clamp(2.15rem, 3.6vw, 4rem);
             font-weight: 700;
             letter-spacing: -0.055em;
             line-height: 0.98;
@@ -1380,6 +1381,32 @@
             gap: 0.8rem;
         }
 
+        .copy-toast {
+            position: fixed;
+            left: 50%;
+            bottom: 1.4rem;
+            z-index: 50;
+            min-width: 180px;
+            padding: 0.78rem 1rem;
+            border: 2px solid var(--color-line);
+            border-radius: 12px;
+            background: var(--color-ink);
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 6px 6px 0 rgba(8, 8, 13, 0.16);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 0.6rem);
+            transition: opacity 160ms ease, transform 160ms ease;
+        }
+
+        .copy-toast.visible {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
         .footer {
             padding: 2rem 0 3rem;
             color: var(--color-muted);
@@ -1416,7 +1443,7 @@
 
             .hero-title {
                 max-width: 920px;
-                font-size: clamp(3.8rem, 6vw, 6.65rem);
+                font-size: clamp(3.2rem, 5.4vw, 5.8rem);
             }
 
             .hero-aside-note {
@@ -1633,6 +1660,10 @@
 
             .contact-links a {
                 width: 100%;
+            }
+
+            .copy-toast {
+                width: calc(100% - 32px);
             }
         }
 
@@ -2267,7 +2298,7 @@
                 <p>I am interested in product engineering roles where the work spans user experience, system design, reliability, and real production workflows.</p>
             </div>
             <div class="contact-links">
-                <a class="primary-button" href="mailto:shuhao.pang@gmail.com">Email me</a>
+                <a class="primary-button email-copy-link" href="mailto:shuhaopang.portia@gmail.com" data-email="shuhaopang.portia@gmail.com">Email me</a>
                 <a class="nav-action" href="https://www.linkedin.com/in/shuhao-pang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a class="nav-action" href="https://github.com/portiaPangsh" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a class="nav-action" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
@@ -2279,10 +2310,15 @@
         <p>&copy; 2026 Shuhao Pang. Product systems portfolio, built as a lightweight static site.</p>
     </footer>
 
+    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true">Email copied</div>
+
     <script>
         const nav = document.querySelector('.site-nav');
         const menuButton = document.querySelector('.menu-toggle');
         const navLinks = document.querySelectorAll('.nav-links a');
+        const emailCopyLink = document.querySelector('.email-copy-link');
+        const copyToast = document.querySelector('.copy-toast');
+        let copyToastTimer;
 
         menuButton.addEventListener('click', () => {
             const isOpen = nav.classList.toggle('nav-open');
@@ -2294,6 +2330,49 @@
                 nav.classList.remove('nav-open');
                 menuButton.setAttribute('aria-expanded', 'false');
             });
+        });
+
+        const showCopyToast = (message) => {
+            copyToast.textContent = message;
+            copyToast.classList.add('visible');
+            window.clearTimeout(copyToastTimer);
+            copyToastTimer = window.setTimeout(() => {
+                copyToast.classList.remove('visible');
+            }, 1800);
+        };
+
+        const copyText = async (text) => {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+
+            const helper = document.createElement('textarea');
+            helper.value = text;
+            helper.setAttribute('readonly', '');
+            helper.style.position = 'fixed';
+            helper.style.top = '-999px';
+            document.body.appendChild(helper);
+            helper.focus();
+            helper.select();
+            const didCopy = document.execCommand('copy');
+            document.body.removeChild(helper);
+
+            if (!didCopy) {
+                throw new Error('Copy command failed');
+            }
+        };
+
+        emailCopyLink.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const email = emailCopyLink.dataset.email;
+
+            try {
+                await copyText(email);
+                showCopyToast('Email copied');
+            } catch (error) {
+                window.location.href = emailCopyLink.href;
+            }
         });
     </script>
 </body>
