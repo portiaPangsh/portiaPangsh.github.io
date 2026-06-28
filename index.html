@@ -3,905 +3,2296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shuhao Pang (Portia) - Senior Full-Stack Engineer</title>
+    <meta name="description" content="Shuhao Pang (Portia) turns messy workflows into product systems people can trust.">
+    <title>Shuhao Pang (Portia) - Product Systems Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #f5f3ed;
-            --bg-secondary: #eae7dc;
-            --accent-primary: #7cb342;
-            --accent-secondary: #f9d62e;
-            --text-primary: #2d3436;
-            --text-secondary: #636e72;
-            --gradient-1: linear-gradient(135deg, #f9d62e 0%, #fbc531 100%);
-            --gradient-2: linear-gradient(135deg, #7cb342 0%, #9ccc65 100%);
+            --color-bg: #fffaf2;
+            --color-bg-lavender: #f3ecfa;
+            --color-ink: #08080d;
+            --color-muted: #55515f;
+            --color-soft: #f7f2e9;
+            --color-panel: #fffdf8;
+            --color-purple: #552cb7;
+            --color-yellow: #ffc567;
+            --color-coral: #fd5a46;
+            --color-green: #00995e;
+            --color-blue: #058cd7;
+            --color-pink: #fb7da8;
+            --color-line: #111111;
+            --color-border: rgba(8, 8, 13, 0.16);
+            --shadow-soft: 0 20px 60px rgba(8, 8, 13, 0.08);
+            --shadow-note: 8px 10px 0 rgba(8, 8, 13, 0.08);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --max-width: 1440px;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Crimson Pro', serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
+            min-width: 320px;
+            background:
+                radial-gradient(circle at 8% 8%, rgba(251, 125, 168, 0.16), transparent 26rem),
+                radial-gradient(circle at 88% 14%, rgba(85, 44, 183, 0.12), transparent 24rem),
+                linear-gradient(180deg, #fffaf2 0%, #fffaf2 48%, #f5eefb 100%);
+            color: var(--color-ink);
+            font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.55;
             overflow-x: hidden;
         }
 
-        .bg-animation {
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(8, 8, 13, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(8, 8, 13, 0.035) 1px, transparent 1px);
+            background-size: 76px 76px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 78%);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            width: min(100% - 48px, var(--max-width));
+            margin: 0 auto;
+            padding: 1.2rem 0;
+        }
+
+        .site-nav::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            height: 86px;
             z-index: -1;
-            opacity: 0.3;
+            background: rgba(255, 250, 242, 0.86);
+            border-bottom: 1px solid rgba(8, 8, 13, 0.08);
+            backdrop-filter: blur(18px);
         }
 
-        .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -200px;
-            animation: float 20s ease-in-out infinite;
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1.1rem;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
-        .bg-animation::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -150px;
-            left: -150px;
-            animation: float 15s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(100px, -50px) scale(1.1); }
-            66% { transform: translate(-50px, 100px) scale(0.9); }
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(245, 243, 237, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(124, 179, 66, 0.2);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
+        .brand-mark {
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .brand-mark span {
+            color: var(--color-purple);
+        }
+
+        .brand-note {
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.35rem;
+            transform: rotate(-2deg);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.9rem, 2vw, 2.2rem);
             list-style: none;
         }
 
         .nav-links a {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
             position: relative;
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            color: var(--color-ink);
+            font-size: 0.96rem;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-links a::after {
-            content: '';
+            content: "";
             position: absolute;
-            bottom: -5px;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-primary);
-            transition: width 0.3s ease;
+            right: 0;
+            bottom: 0.18rem;
+            height: 0.2rem;
+            z-index: -1;
+            background: var(--color-yellow);
+            border-radius: 999px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 160ms ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-primary);
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after {
+            transform: scaleX(1);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .download-btn {
-            padding: 0.8rem 1.5rem;
-            background: var(--gradient-2);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.4);
-        }
-
-        .hero {
-            min-height: 100vh;
+        .nav-actions {
             display: flex;
             align-items: center;
-            padding: 0 5%;
-            position: relative;
+            gap: 0.8rem;
         }
 
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
+        .nav-action,
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 44px;
+            border-radius: 10px;
+            border: 2px solid var(--color-line);
+            color: var(--color-ink);
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 4px 4px 0 rgba(8, 8, 13, 0.14);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .nav-action {
+            padding: 0.72rem 1rem;
+            background: var(--color-panel);
         }
 
-        .hero-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-primary);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
+        .primary-button {
+            padding: 1rem 1.35rem;
+            background: var(--color-purple);
+            color: #ffffff;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
+        .secondary-button {
+            min-height: 40px;
+            padding: 0.82rem 1rem;
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
         }
 
-        .hero-title .highlight {
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .secondary-button span {
+            border-bottom: 0.22rem solid var(--color-purple);
         }
 
-        .hero-description {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--color-line);
+            border-radius: 10px;
+            background: var(--color-panel);
+            box-shadow: 4px 4px 0 rgba(8, 8, 13, 0.14);
+            cursor: pointer;
         }
 
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            animation: fadeInUp 1s ease-out 0.8s backwards;
+        .menu-toggle span,
+        .menu-toggle span::before,
+        .menu-toggle span::after {
+            display: block;
+            width: 18px;
+            height: 2px;
+            margin: 0 auto;
+            background: var(--color-ink);
+            border-radius: 999px;
+            content: "";
         }
 
-        .tag {
-            font-family: 'JetBrains Mono', monospace;
-            padding: 0.5rem 1rem;
-            background: rgba(124, 179, 66, 0.15);
-            border: 1px solid rgba(124, 179, 66, 0.4);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--accent-primary);
+        .menu-toggle span::before {
+            transform: translateY(-6px);
+        }
+
+        .menu-toggle span::after {
+            transform: translateY(4px);
+        }
+
+        main {
+            width: min(100% - 48px, var(--max-width));
+            margin: 0 auto;
         }
 
         section {
-            padding: 8rem 5%;
-            position: relative;
+            scroll-margin-top: 110px;
         }
 
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .hero {
+            min-height: min(860px, calc(100vh - 86px));
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(560px, 1.14fr);
+            align-items: center;
+            gap: clamp(2rem, 5vw, 5rem);
+            padding: clamp(3rem, 6vw, 5.8rem) 0 clamp(3rem, 5vw, 5rem);
+        }
+
+        .hero-copy {
+            position: relative;
+            max-width: 660px;
+        }
+
+        .hello-note,
+        .hand-note,
+        .annotation {
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            color: var(--color-pink);
+            font-size: clamp(1.25rem, 2vw, 1.7rem);
+            line-height: 1.1;
+        }
+
+        .hello-note {
+            display: inline-block;
+            margin-bottom: 1.1rem;
+            transform: rotate(-2deg);
+        }
+
+        .hero-title {
+            max-width: 760px;
+            font-size: clamp(3.8rem, 5vw, 6rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+        }
+
+        .scribble {
+            position: relative;
+            display: inline;
+            padding: 0 0.04em;
+            background: linear-gradient(180deg, transparent 56%, rgba(255, 197, 103, 0.86) 56%);
+            border-radius: 999px 44% 58% 999px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .scribble::after {
+            content: none;
+        }
+
+        .circle-mark {
             position: relative;
             display: inline-block;
         }
 
-        .section-title::after {
-            content: '';
+        .circle-mark::after {
+            content: "";
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: var(--gradient-2);
+            inset: 0.08em -0.1em -0.03em -0.13em;
+            border: 0.08em solid var(--color-pink);
+            border-radius: 52% 48% 48% 54%;
+            transform: rotate(-4deg);
+            pointer-events: none;
         }
 
-        .section-subtitle {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 4rem;
+        .hero-subcopy {
+            max-width: 660px;
+            margin-top: 1.8rem;
+            color: var(--color-ink);
+            font-size: clamp(1.05rem, 1.45vw, 1.36rem);
+            line-height: 1.65;
         }
 
-        .experience-grid {
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .safety-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: fit-content;
+            max-width: 100%;
+            margin-top: 2rem;
+            padding: 0.9rem 1.1rem;
+            border: 2px dashed rgba(8, 8, 13, 0.25);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.48);
+            color: var(--color-ink);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hero-note-row {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: clamp(-2.4rem, -2vw, -0.75rem);
+        }
+
+        .hero-note-row .safety-chip,
+        .hero-note-row .hero-aside-note {
+            margin-top: 0;
+        }
+
+        .safety-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            border: 2px solid var(--color-line);
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .hero-aside-note {
+            max-width: 360px;
+            margin: 1.3rem 0 0 auto;
+            color: var(--color-purple);
+            transform: rotate(-2deg);
+        }
+
+        .system-board {
+            position: relative;
+            padding: clamp(1.25rem, 2vw, 2rem);
+            border: 3px solid var(--color-line);
+            border-radius: 32px;
+            background: rgba(255, 253, 248, 0.88);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .system-board::after {
+            content: "";
+            position: absolute;
+            right: clamp(1.2rem, 2vw, 2rem);
+            bottom: clamp(1.2rem, 2vw, 2rem);
+            width: 118px;
+            height: 22px;
+            background: rgba(255, 197, 103, 0.7);
+            transform: rotate(-3deg);
+            border-radius: 999px;
+        }
+
+        .board-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .board-title {
+            display: inline-block;
+            padding: 0.16rem 0.9rem 0.26rem;
+            background: rgba(255, 197, 103, 0.72);
+            border-radius: 999px 44% 48% 999px;
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: clamp(1.65rem, 2.5vw, 2.1rem);
+            line-height: 1;
+            transform: rotate(-1deg);
+        }
+
+        .board-date {
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.35rem;
+        }
+
+        .evidence-grid {
             display: grid;
-            gap: 3rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .evidence-card {
+            display: grid;
+            gap: 0.78rem;
+            min-width: 0;
+            min-height: 100%;
+            padding: 0.85rem;
+            border: 2px solid var(--color-line);
+            border-radius: 18px;
+            background: #ffffff;
+        }
+
+        .evidence-card.pink {
+            background: rgba(251, 125, 168, 0.15);
+        }
+
+        .evidence-card.yellow {
+            background: rgba(255, 197, 103, 0.22);
+        }
+
+        .evidence-card.blue {
+            background: rgba(5, 140, 215, 0.12);
+        }
+
+        .evidence-card.green {
+            background: rgba(0, 153, 94, 0.12);
+        }
+
+        .evidence-title {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.48rem;
+            font-size: clamp(0.84rem, 0.92vw, 0.98rem);
+            font-weight: 700;
+            line-height: 1.16;
+            overflow-wrap: anywhere;
+        }
+
+        .evidence-title span {
+            display: inline-grid;
+            place-items: center;
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px;
+            border-radius: 999px;
+            background: var(--color-ink);
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+
+        .human-problem {
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.25rem;
+            line-height: 1.1;
+        }
+
+        .mini-ui {
+            display: grid;
+            gap: 0.5rem;
+            width: 100%;
+            min-width: 0;
+            min-height: 112px;
+            padding: 0.75rem;
+            overflow: hidden;
+            border: 1.5px solid rgba(8, 8, 13, 0.45);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.86);
+        }
+
+        .mini-ui strong {
+            font-size: 0.86rem;
+        }
+
+        .mini-line {
+            height: 0.54rem;
+            border-radius: 999px;
+            background: rgba(8, 8, 13, 0.15);
+        }
+
+        .mini-line.short {
+            width: 42%;
+        }
+
+        .mini-line.medium {
+            width: 68%;
+        }
+
+        .mini-line.long {
+            width: 88%;
+        }
+
+        .mini-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            min-height: 30px;
+            padding: 0.35rem 0.7rem;
+            border: 1.5px solid currentColor;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            max-width: 100%;
+            text-align: center;
+            white-space: normal;
+        }
+
+        .mini-button.purple {
+            background: var(--color-purple);
+            color: #ffffff;
+        }
+
+        .mini-button.blue {
+            background: var(--color-blue);
+            color: #ffffff;
+        }
+
+        .mini-button.green {
+            background: rgba(0, 153, 94, 0.2);
+            color: var(--color-ink);
+        }
+
+        .system-clue {
+            padding-top: 0.65rem;
+            border-top: 1px dashed rgba(8, 8, 13, 0.28);
+            color: var(--color-muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        .next-action {
+            color: var(--color-ink);
+            font-size: 0.86rem;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .board-footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 1.1rem;
+            color: var(--color-ink);
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .practice-note {
+            display: grid;
+            grid-template-columns: 0.72fr 1.28fr;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            align-items: center;
+            margin: 0 0 clamp(4rem, 7vw, 7rem);
+            padding: clamp(1.35rem, 2.5vw, 2.2rem);
+            border: 2px solid var(--color-line);
+            border-radius: 24px;
+            background: rgba(243, 236, 250, 0.72);
+            box-shadow: var(--shadow-note);
+        }
+
+        .practice-note .annotation {
+            color: var(--color-purple);
+        }
+
+        .practice-note p {
+            color: var(--color-ink);
+            font-size: clamp(1.1rem, 1.55vw, 1.42rem);
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .section-block {
+            margin-bottom: clamp(4.5rem, 8vw, 8rem);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 4vw, 4rem);
+            align-items: end;
+            margin-bottom: clamp(1.8rem, 3vw, 3rem);
+        }
+
+        .section-kicker {
+            margin-bottom: 0.8rem;
+            color: var(--color-purple);
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.35rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.4rem, 4.8vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.055em;
+            line-height: 0.98;
+        }
+
+        .section-copy {
+            max-width: 760px;
+            color: var(--color-muted);
+            font-size: clamp(1rem, 1.35vw, 1.25rem);
+            line-height: 1.7;
+        }
+
+        .story-stack {
+            display: grid;
+            gap: 1.15rem;
+        }
+
+        .system-strip {
+            display: grid;
+            grid-template-columns: 1.05fr repeat(4, minmax(0, 1fr));
+            gap: 0.9rem;
+            align-items: stretch;
+            padding: 1rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.24);
+            border-left: 6px solid var(--color-purple);
+            border-radius: 24px;
+            background: rgba(255, 253, 248, 0.86);
+            box-shadow: 0 12px 34px rgba(8, 8, 13, 0.06);
+        }
+
+        .system-strip-title {
+            display: grid;
+            align-content: center;
+            gap: 0.65rem;
+            padding: 1rem;
+            border-radius: 16px;
+            background: var(--color-bg-lavender);
+        }
+
+        .system-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--color-line);
+            border-radius: 14px;
+            background: #ffffff;
+            color: var(--color-purple);
+            font-weight: 700;
+        }
+
+        .system-strip h3 {
+            font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+            line-height: 1.15;
+        }
+
+        .story-cell {
+            display: grid;
+            gap: 0.5rem;
+            padding: 0.85rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.12);
+            border-radius: 14px;
+            background: #ffffff;
+        }
+
+        .story-cell.observation {
+            background: rgba(85, 44, 183, 0.08);
+        }
+
+        .story-cell.decision {
+            background: rgba(255, 197, 103, 0.2);
+        }
+
+        .story-cell.system {
+            background: rgba(5, 140, 215, 0.12);
+        }
+
+        .story-cell.outcome {
+            background: rgba(0, 153, 94, 0.12);
+        }
+
+        .story-label {
+            color: var(--color-muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .story-cell p {
+            color: var(--color-ink);
+            font-size: 0.94rem;
+            font-weight: 600;
+            line-height: 1.42;
+        }
+
+        .section-note {
+            margin-top: 1rem;
+            padding: 1rem 1.15rem;
+            border: 1.5px dashed rgba(8, 8, 13, 0.25);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--color-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .evidence-wall {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .surface-card {
+            position: relative;
+            display: grid;
+            gap: 0.9rem;
+            padding: 1rem;
+            border: 2px solid rgba(8, 8, 13, 0.2);
+            border-radius: 22px;
+            background: rgba(255, 253, 248, 0.9);
+            box-shadow: 0 12px 34px rgba(8, 8, 13, 0.05);
+        }
+
+        .surface-title {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 1.02rem;
+            line-height: 1.2;
+        }
+
+        .surface-index {
+            display: inline-grid;
+            place-items: center;
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px;
+            border-radius: 999px;
+            background: var(--color-ink);
+            color: #ffffff;
+            font-size: 0.78rem;
+        }
+
+        .surface-frame {
+            min-height: 238px;
+            padding: 0.9rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.4);
+            border-radius: 16px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .surface-frame.dashboard {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 0.75rem;
+        }
+
+        .surface-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.55rem;
+        }
+
+        .surface-stat,
+        .surface-row,
+        .surface-panel {
+            border: 1px solid rgba(8, 8, 13, 0.14);
+            border-radius: 12px;
+            background: #fffdf8;
+        }
+
+        .surface-stat {
+            min-height: 56px;
+            padding: 0.5rem;
+        }
+
+        .surface-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 36px;
+            padding: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .surface-label {
+            color: var(--color-muted);
+            font-size: 0.66rem;
+            font-weight: 700;
+        }
+
+        .surface-number {
+            color: var(--color-ink);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .surface-frame.detail {
+            display: grid;
+            grid-template-columns: 0.34fr 0.66fr;
+            gap: 0.7rem;
+        }
+
+        .surface-rail {
+            display: grid;
+            align-content: start;
+            gap: 0.5rem;
+            padding: 0.65rem;
+            border-radius: 12px;
+            background: rgba(85, 44, 183, 0.09);
+        }
+
+        .surface-rail span {
+            height: 0.55rem;
+            border-radius: 999px;
+            background: rgba(8, 8, 13, 0.24);
+        }
+
+        .detail-stack {
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            min-height: 24px;
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(0, 153, 94, 0.14);
+            color: var(--color-green);
+            font-size: 0.68rem;
+            font-weight: 700;
+        }
+
+        .surface-frame.checkout {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .stepper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.3rem;
+            align-items: center;
+        }
+
+        .step {
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(8, 8, 13, 0.14);
+        }
+
+        .step.active {
+            background: var(--color-blue);
+        }
+
+        .checkout-body {
+            display: grid;
+            grid-template-columns: 0.62fr 0.38fr;
+            gap: 0.75rem;
+        }
+
+        .surface-frame.payments {
+            display: grid;
+            align-content: start;
+            gap: 0.55rem;
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 32px 1fr auto;
+            gap: 0.5rem;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.45rem;
+            border: 1px solid rgba(8, 8, 13, 0.12);
+            border-radius: 10px;
+        }
+
+        .card-brand {
+            display: grid;
+            place-items: center;
+            height: 24px;
+            border-radius: 6px;
+            background: var(--color-blue);
+            color: #ffffff;
+            font-size: 0.58rem;
+            font-weight: 700;
+        }
+
+        .surface-frame.renewal {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0.65rem;
+            align-items: center;
+        }
+
+        .plan-panel {
+            min-height: 160px;
+            padding: 0.65rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.18);
+            border-radius: 14px;
+            background: #fffdf8;
+        }
+
+        .plan-arrow {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .surface-frame.states {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.55rem;
+        }
+
+        .state-box {
+            display: grid;
+            align-content: center;
+            justify-items: center;
+            gap: 0.45rem;
+            min-height: 156px;
+            padding: 0.55rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.15);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .state-box.error {
+            background: rgba(253, 90, 70, 0.1);
+            border-color: rgba(253, 90, 70, 0.45);
+        }
+
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border: 4px solid rgba(8, 8, 13, 0.12);
+            border-top-color: var(--color-blue);
+            border-radius: 999px;
+        }
+
+        .surface-annotation {
+            margin-left: auto;
+            color: var(--color-ink);
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.08rem;
+            line-height: 1.05;
+            text-align: right;
+        }
+
+        .workflow-panel,
+        .labs-panel,
+        .about-panel,
+        .experience-panel,
+        .contact-panel {
+            border: 2px solid var(--color-line);
+            border-radius: 28px;
+            background: rgba(255, 253, 248, 0.88);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .workflow-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 320px;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            padding: clamp(1.4rem, 3vw, 2.8rem);
+        }
+
+        .loop {
+            display: grid;
+            grid-template-columns: repeat(7, minmax(0, 1fr));
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .loop-step {
+            position: relative;
+            min-height: 112px;
+            padding: 0.85rem;
+            border: 1.5px solid rgba(85, 44, 183, 0.28);
+            border-radius: 18px;
+            background: rgba(243, 236, 250, 0.82);
+        }
+
+        .loop-step:not(:last-of-type)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -0.68rem;
+            width: 0.62rem;
+            height: 0.62rem;
+            border-top: 2px solid var(--color-line);
+            border-right: 2px solid var(--color-line);
+            transform: translateY(-50%) rotate(45deg);
+            background: transparent;
+        }
+
+        .cycle-cue {
+            grid-column: 1 / -1;
+            justify-self: center;
+            position: relative;
+            margin-top: 0.25rem;
+            padding: 0.3rem 0.9rem;
+            border: 1.5px dashed rgba(85, 44, 183, 0.42);
+            border-radius: 999px;
+            background: rgba(255, 253, 248, 0.9);
+            color: var(--color-purple);
+            font-family: "Patrick Hand", "Comic Sans MS", cursive;
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+
+        .cycle-cue::before {
+            content: "";
+            position: absolute;
+            left: -2.2rem;
+            top: 50%;
+            width: 1.6rem;
+            height: 1.1rem;
+            border-bottom: 2px solid var(--color-purple);
+            border-left: 2px solid var(--color-purple);
+            border-radius: 0 0 0 18px;
+            transform: translateY(-45%);
+        }
+
+        .loop-number {
+            color: var(--color-purple);
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .loop-step h3 {
+            margin-top: 0.35rem;
+            font-size: 1rem;
+        }
+
+        .loop-step p {
+            margin-top: 0.35rem;
+            color: var(--color-muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .loop-note {
+            display: grid;
+            align-content: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            border: 1.5px dashed rgba(8, 8, 13, 0.28);
+            border-radius: 20px;
+            background: rgba(255, 197, 103, 0.18);
+        }
+
+        .loop-note strong {
+            font-size: 1.4rem;
+            line-height: 1.2;
+        }
+
+        .loop-note ul {
+            display: grid;
+            gap: 0.5rem;
+            padding-left: 1.15rem;
+            color: var(--color-muted);
+            font-weight: 600;
+        }
+
+        .labs-panel {
+            display: grid;
+            gap: 1rem;
+            padding: clamp(1.2rem, 2.6vw, 2rem);
+        }
+
+        .lab-row {
+            display: grid;
+            grid-template-columns: 72px minmax(0, 1fr) auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.12);
+            border-radius: 20px;
+            background: #ffffff;
+        }
+
+        .lab-icon {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border: 2px solid var(--color-line);
+            border-radius: 18px;
+            background: var(--color-bg-lavender);
+            color: var(--color-purple);
+            font-weight: 700;
+        }
+
+        .lab-row h3 {
+            font-size: 1.2rem;
+        }
+
+        .lab-row p {
+            max-width: 760px;
+            color: var(--color-muted);
+            font-weight: 600;
+        }
+
+        .lab-status {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            min-height: 32px;
+            padding: 0.4rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(85, 44, 183, 0.12);
+            color: var(--color-purple);
+            font-size: 0.76rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pipeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+
+        .pipeline span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 0.35rem 0.55rem;
+            border: 1px solid rgba(8, 8, 13, 0.15);
+            border-radius: 999px;
+            background: rgba(255, 250, 242, 0.85);
+            color: var(--color-ink);
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+
+        .game-state-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 34px);
+            grid-auto-rows: 34px;
+            width: max-content;
+            gap: 0.25rem;
+            margin-top: 0.85rem;
+            padding: 0.45rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.18);
+            border-radius: 14px;
+            background: rgba(243, 236, 250, 0.72);
+        }
+
+        .game-state-preview span {
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(8, 8, 13, 0.18);
+            border-radius: 9px;
+            background: #fffdf8;
+            color: var(--color-ink);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .game-state-preview .active {
+            background: var(--color-yellow);
+        }
+
+        .mini-pipeline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.78rem;
+            margin-top: 0.85rem;
+        }
+
+        .mini-pipeline span {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0.4rem 0.55rem;
+            border: 1.5px solid rgba(5, 140, 215, 0.28);
+            border-radius: 12px;
+            background: rgba(5, 140, 215, 0.08);
+            color: var(--color-ink);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .mini-pipeline span:not(:last-child)::after {
+            content: "->";
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+            color: var(--color-muted);
+            font-weight: 700;
+            transform: translateY(-50%);
+        }
+
+        .about-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            gap: clamp(1.4rem, 3vw, 3rem);
+            padding: clamp(1.4rem, 3vw, 2.6rem);
+        }
+
+        .about-copy {
+            display: grid;
+            gap: 1rem;
+            color: var(--color-muted);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .about-points {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .about-point {
+            padding: 1rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.12);
+            border-radius: 18px;
+            background: #ffffff;
+        }
+
+        .about-point h3 {
+            margin-bottom: 0.35rem;
+            font-size: 1rem;
+        }
+
+        .about-point p {
+            color: var(--color-muted);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .experience-panel {
+            display: grid;
+            gap: 1rem;
+            padding: clamp(1.2rem, 2.6vw, 2rem);
         }
 
         .experience-card {
-            background: rgba(234, 231, 220, 0.6);
-            border: 1px solid rgba(124, 179, 66, 0.3);
-            border-radius: 20px;
-            padding: 3rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-2);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.2);
-        }
-
-        .experience-card:hover::before {
-            opacity: 0.05;
+            padding: 1rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.12);
+            border-radius: 18px;
+            background: #ffffff;
         }
 
         .experience-header {
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 1rem;
+            margin-bottom: 0.75rem;
         }
 
-        .experience-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent-primary);
+        .experience-card h3 {
+            font-size: 1.15rem;
         }
 
+        .experience-company,
         .experience-period {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .experience-company {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            color: var(--color-muted);
+            font-size: 0.92rem;
+            font-weight: 700;
         }
 
         .experience-list {
-            list-style: none;
             display: grid;
+            gap: 0.55rem;
+            padding-left: 1.15rem;
+            color: var(--color-muted);
+            font-weight: 600;
+        }
+
+        .skills-grid,
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1rem;
         }
 
-        .experience-list li {
-            padding-left: 2rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.8;
+        .skill-group,
+        .education-card {
+            padding: 1rem;
+            border: 1.5px solid rgba(8, 8, 13, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 253, 248, 0.9);
         }
 
-        .experience-list li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-size: 1.2rem;
+        .skill-group h3,
+        .education-card h3 {
+            margin-bottom: 0.7rem;
+            font-size: 1rem;
         }
 
-        .skills-grid {
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 32px;
+            padding: 0.38rem 0.62rem;
+            border: 1px solid rgba(8, 8, 13, 0.13);
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--color-muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .contact-panel {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: minmax(0, 1fr) auto;
             gap: 2rem;
+            align-items: center;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            margin-bottom: 3rem;
         }
 
-        .skill-category {
-            background: rgba(234, 231, 220, 0.6);
-            border: 1px solid rgba(124, 179, 66, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        .contact-panel h2 {
+            font-size: clamp(2.4rem, 5vw, 5rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.2);
+        .contact-panel p {
+            max-width: 720px;
+            margin-top: 0.9rem;
+            color: var(--color-muted);
+            font-size: 1.08rem;
+            font-weight: 600;
         }
 
-        .skill-category h3 {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-tags {
+        .contact-links {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
         }
 
-        .skill-tag {
-            font-family: 'JetBrains Mono', monospace;
-            padding: 0.4rem 1rem;
-            background: rgba(124, 179, 66, 0.15);
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            border: 1px solid rgba(124, 179, 66, 0.3);
-        }
-
-        .projects-placeholder {
-            text-align: center;
-            padding: 6rem 2rem;
-            background: rgba(234, 231, 220, 0.5);
-            border: 2px dashed rgba(124, 179, 66, 0.4);
-            border-radius: 20px;
-        }
-
-        .projects-placeholder h3 {
-            font-size: 2rem;
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-        }
-
-        .projects-placeholder p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-        }
-
-        .education-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .education-card {
-            background: rgba(234, 231, 220, 0.6);
-            border: 1px solid rgba(124, 179, 66, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .education-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.2);
-        }
-
-        .education-degree {
-            font-size: 1.5rem;
+        .footer {
+            padding: 2rem 0 3rem;
+            color: var(--color-muted);
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--accent-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-school {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-period {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .education-note {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(124, 179, 66, 0.15);
-            border-radius: 10px;
-            color: var(--accent-primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            border: 1px solid rgba(124, 179, 66, 0.3);
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
             text-align: center;
         }
 
-        .contact-text {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
+        @media (max-width: 1180px) {
+            .site-nav {
+                width: min(100% - 32px, var(--max-width));
+            }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            font-family: 'JetBrains Mono', monospace;
-            padding: 1rem 2rem;
-            background: rgba(124, 179, 66, 0.1);
-            border: 1px solid var(--accent-primary);
-            border-radius: 50px;
-            color: var(--accent-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-link:hover {
-            background: var(--accent-primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(124, 179, 66, 0.3);
-        }
-
-        footer {
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(124, 179, 66, 0.2);
-        }
-
-        footer p {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1.5rem 5%;
+            main {
+                width: min(100% - 32px, var(--max-width));
             }
 
             .nav-links {
+                gap: 0.9rem;
+            }
+
+            .nav-links a {
+                font-size: 0.86rem;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-copy {
+                max-width: 860px;
+            }
+
+            .hero-title {
+                max-width: 920px;
+                font-size: clamp(3.8rem, 6vw, 6.65rem);
+            }
+
+            .hero-aside-note {
+                margin-left: 0;
+            }
+
+            .hero-note-row {
+                margin-top: 0;
+            }
+
+            .evidence-grid,
+            .evidence-wall {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .system-strip {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .system-strip-title {
+                grid-column: 1 / -1;
+            }
+
+            .workflow-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .loop {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .loop-step:not(:last-of-type)::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .menu-toggle {
+                display: inline-block;
+            }
+
+            .site-nav {
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 86px;
+                left: 16px;
+                right: 16px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.1rem;
+                padding: 0.75rem;
+                border: 2px solid var(--color-line);
+                border-radius: 18px;
+                background: var(--color-panel);
+                box-shadow: var(--shadow-note);
+            }
+
+            .nav-open .nav-links {
+                display: flex;
+            }
+
+            .nav-links a {
+                justify-content: center;
+                min-height: 44px;
+            }
+
+            .nav-actions .nav-action {
+                display: none;
+            }
+
+            .practice-note,
+            .section-heading,
+            .about-panel,
+            .contact-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .lab-row {
+                grid-template-columns: 58px minmax(0, 1fr);
+            }
+
+            .lab-status {
+                grid-column: 2;
+                justify-self: start;
+            }
+
+            .skills-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .site-nav::before {
+                height: 78px;
+            }
+
+            .site-nav {
+                padding: 0.9rem 0;
+            }
+
+            .brand-note {
                 display: none;
             }
 
             .hero {
-                padding-top: 100px;
+                gap: 1.15rem;
+                padding-top: 1.2rem;
             }
 
-            section {
-                padding: 4rem 5%;
+            .hero-title {
+                max-width: 100%;
+                font-size: clamp(2.25rem, 9.4vw, 3.5rem);
+                letter-spacing: -0.04em;
             }
 
-            .experience-header {
+            .hello-note {
+                margin-bottom: 0.55rem;
+            }
+
+            .hero-subcopy {
+                margin-top: 0.85rem;
+                font-size: 0.98rem;
+                line-height: 1.48;
+            }
+
+            .hero-actions {
+                align-items: stretch;
                 flex-direction: column;
+                gap: 0.55rem;
+                margin-top: 0.95rem;
+            }
+
+            .primary-button,
+            .secondary-button {
+                width: 100%;
+            }
+
+            .primary-button {
+                min-height: 42px;
+                padding: 0.86rem 1rem;
+            }
+
+            .secondary-button {
+                min-height: 32px;
+                padding: 0.35rem 0.6rem;
+            }
+
+            .system-board {
+                padding: 1rem;
+                border-radius: 24px;
+            }
+
+            .hero-note-row {
+                display: grid;
+                gap: 0.8rem;
+            }
+
+            .safety-chip {
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .board-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .evidence-grid,
+            .evidence-wall,
+            .system-strip,
+            .loop {
+                grid-template-columns: 1fr;
+            }
+
+            .cycle-cue {
+                justify-self: start;
+                margin-left: 1.8rem;
+            }
+
+            .mini-pipeline {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .mini-pipeline span:not(:last-child)::after {
+                right: auto;
+                left: 0.75rem;
+                top: calc(100% - 0.1rem);
+                transform: rotate(90deg);
+            }
+
+            .surface-frame {
+                min-height: 210px;
+            }
+
+            .surface-frame.checkout,
+            .surface-frame.renewal,
+            .surface-frame.states {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-body {
+                grid-template-columns: 1fr;
             }
 
             .contact-links {
                 flex-direction: column;
             }
+
+            .contact-links a {
+                width: 100%;
+            }
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-animation"></div>
-
-    <nav>
-        <div class="logo">SP.</div>
-        <ul class="nav-links">
+    <nav class="site-nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Shuhao Pang home">
+            <span class="brand-mark">SP<span>.</span></span>
+            <span class="brand-note">field notes</span>
+        </a>
+        <ul class="nav-links" id="primaryNav">
+            <li><a href="#systems">Selected Systems</a></li>
+            <li><a href="#ui-work">UI Work</a></li>
+            <li><a href="#ai-workflow">AI Loop</a></li>
+            <li><a href="#projects">Projects &amp; Labs</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#languages">Languages</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#" class="download-btn" id="downloadResume">Download Resume</a>
+        <div class="nav-actions">
+            <a class="nav-action" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
+            <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primaryNav" aria-expanded="false">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
     </nav>
 
-    <section class="hero" id="about">
-        <div class="hero-content">
-            <div class="hero-subtitle">Hello, I'm</div>
-            <h1 class="hero-title">Shuhao <span class="highlight">Pang</span></h1>
-            <p class="hero-description">
-                <strong>Call me Portia.</strong> Full-stack engineer with 5 years of end-to-end ownership across payment infrastructure,
-                multi-tenant platform architecture, and cloud-native systems — progressing from Software Engineer to Senior in 3 years
-                at a high-growth B2B SaaS company. Architected production systems from zero to one, including a multi-tenant membership
-                platform and a high-availability payment infrastructure serving clients such as Statue of Liberty, Niagara Falls,
-                Alcatraz, and San Diego Zoo.
-            </p>
-            <div class="hero-tags">
-                <span class="tag">Full-Stack Development</span>
-                <span class="tag">Cloud Architecture</span>
-                <span class="tag">Membership Platforms</span>
-                <span class="tag">Payment Systems</span>
-                <span class="tag">AWS Serverless</span>
-                <span class="tag">React / Node.js / TypeScript</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2 class="section-title">Work Experience</h2>
-        <p class="section-subtitle">Building systems that matter</p>
-        
-        <div class="experience-grid">
-            <div class="experience-card fade-in">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Senior Software Engineer</h3>
-                        <p class="experience-company">Anchor Operating System</p>
-                    </div>
-                    <span class="experience-period">Jan. 2024 - Present</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Sole designer and implementer of a multi-tenant Membership Management System serving 10+ tourism properties, supporting 800K+ active memberships and over $100M in annual recurring revenue. Led the full lifecycle — requirements gathering, schema design, implementation, and zero-downtime production rollout via a versioned routing layer replacing the legacy system with full backward compatibility.</li>
-                    <li>Designed an 8-entity single-table DynamoDB schema managing 7M+ records; utilized 3 GSIs and composite sort keys to support 5+ access patterns, achieving consistent single-digit millisecond (&lt;10ms) query latency.</li>
-                    <li>Implemented a 6-phase membership purchase pipeline handling new purchases, renewals, upgrades, and downgrades with deterministic action validation and automated benefit allocation.</li>
-                    <li>Built a lazy-evaluation benefit system with configurable accrual rules and expiry-based recovery, eliminating 20+ daily heavy cron jobs and reducing database read load by ~40% while keeping balances always current.</li>
-                    <li>Developed cryptographic card number generation using a Feistel cipher with Luhn check digits — globally unique without external coordination.</li>
-                    <li>Built an event-driven async processing layer on SQS for purchase orchestration, report generation, and CRM integration.</li>
-                    <li>Architected a high-availability payment platform integrating Stripe, Chase, and Authorize.net. Implemented idempotent webhook processing and automated fault-recovery, achieving 100% financial data consistency across distributed environments.</li>
-                    <li>Owned and built a back-end automation engine for global subscription lifecycle management using AWS Lambda and SQS — eliminating 100% of manual payment failure intervention and supporting a 40–60% increase in transaction volume.</li>
-                    <li>Designed a transaction integration layer consolidating fragmented booking flows into atomic, performant service calls, processing 100% of platform orders with improved throughput and stability at peak traffic.</li>
-                    <li>Built a full-stack revenue management dashboard with real-time telemetry, guest analytics, and predictive forecasting — enabling engineering and finance to proactively detect bottlenecks and financial discrepancies.</li>
-                    <li>Provisioned and maintained cloud infrastructure via Terraform across Lambda, DynamoDB, S3, and AppSync, ensuring reproducible, secure environments aligned with CNCF best practices.</li>
-                </ul>
-            </div>
-
-            <div class="experience-card fade-in">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Software Engineer II</h3>
-                        <p class="experience-company">Anchor Operating System</p>
-                    </div>
-                    <span class="experience-period">Jun. 2022 - Jan. 2024</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Engineered a dynamic cart state-management engine enabling real-time API-driven modifications without disrupting the user session lifecycle. Reduced redundant compute cycles through optimized UI-to-API synchronization.</li>
-                    <li>Led the design and delivery of comprehensive automated integration test suites for core API services and SDK components across multiple teams, validating end-to-end system reliability and maintaining 99.9% uptime for critical customer-facing flows.</li>
-                </ul>
-            </div>
-
-            <div class="experience-card fade-in">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Software Engineer</h3>
-                        <p class="experience-company">Anchor Operating System</p>
-                    </div>
-                    <span class="experience-period">Jul. 2021 - Jun. 2022</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Designed and implemented a centralized itinerary bundling engine aggregating data for 100% of system-wide orders, ensuring consistency across multiple service modules and eliminating data fragmentation.</li>
-                    <li>Built the automated integration testing framework adopted across core API services and SDK components — reducing regression risk and establishing the reliability baseline for platform-wide deployments.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Tools and technologies I work with</p>
-        
-        <div class="skills-grid">
-            <div class="skill-category fade-in">
-                <h3>Languages</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">JavaScript (ES6+)</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="hello-note">hi, I'm Shuhao</p>
+                <h1 class="hero-title" id="hero-title">
+                    I turn <span class="circle-mark">messy</span> workflows into <span class="scribble">product systems</span> people can trust.
+                </h1>
+                <p class="hero-subcopy">
+                    I design and build systems across membership, payments, portals, checkout, APIs, UI states, rollout, debugging, and AI-assisted engineering loops.
+                </p>
+                <div class="hero-actions" aria-label="Portfolio shortcuts">
+                    <a class="primary-button" href="#systems">See the systems <span aria-hidden="true">-&gt;</span></a>
+                    <a class="secondary-button" href="#ui-work"><span>View surfaces</span></a>
+                    <a class="secondary-button" href="#ai-workflow"><span>How I work</span></a>
                 </div>
             </div>
 
-            <div class="skill-category fade-in">
-                <h3>Frontend</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Redux</span>
-                    <span class="skill-tag">HTML5/CSS3</span>
-                    <span class="skill-tag">Responsive UI</span>
-                    <span class="skill-tag">React Router</span>
-                    <span class="skill-tag">GraphQL</span>
-                    <span class="skill-tag">WebSockets</span>
+            <aside class="system-board" aria-label="A day in the system storyboard">
+                <div class="board-header">
+                    <h2 class="board-title">A day in the system</h2>
+                    <span class="board-date">field notes</span>
                 </div>
-            </div>
+                <div class="evidence-grid">
+                    <article class="evidence-card pink">
+                        <h3 class="evidence-title"><span>1</span> Membership rule conflict</h3>
+                        <p class="human-problem">Which benefits apply?</p>
+                        <div class="mini-ui" aria-label="Recreated membership surface">
+                            <strong>Benefits</strong>
+                            <div class="mini-line long"></div>
+                            <div class="mini-line medium"></div>
+                            <span class="mini-button">Status: check rules</span>
+                        </div>
+                        <p class="system-clue">Lifecycle rules, eligibility, permissions.</p>
+                        <p class="next-action">Show clear status or next step.</p>
+                    </article>
 
-            <div class="skill-category fade-in">
-                <h3>Backend & APIs</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">REST APIs</span>
-                    <span class="skill-tag">GraphQL</span>
-                    <span class="skill-tag">API Gateway</span>
-                    <span class="skill-tag">Event-Driven Architecture</span>
-                    <span class="skill-tag">Microservices</span>
-                </div>
-            </div>
+                    <article class="evidence-card yellow">
+                        <h3 class="evidence-title"><span>2</span> Payment recovery</h3>
+                        <p class="human-problem">Did it fail or go through?</p>
+                        <div class="mini-ui" aria-label="Recreated payment recovery surface">
+                            <strong>Payment failed</strong>
+                            <div class="mini-line medium"></div>
+                            <span class="mini-button purple">Retry payment</span>
+                        </div>
+                        <p class="system-clue">Provider event, retry state, recovery path.</p>
+                        <p class="next-action">Retry, update method, or confirm.</p>
+                    </article>
 
-            <div class="skill-category fade-in">
-                <h3>Data Modeling</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">DynamoDB Single-Table Design</span>
-                    <span class="skill-tag">Multi-Tenant Architecture</span>
-                    <span class="skill-tag">Schema Design</span>
-                </div>
-            </div>
+                    <article class="evidence-card blue">
+                        <h3 class="evidence-title"><span>3</span> Portal / Checkout state</h3>
+                        <p class="human-problem">Am I done?</p>
+                        <div class="mini-ui" aria-label="Recreated checkout state surface">
+                            <strong>Review order</strong>
+                            <div class="stepper" aria-hidden="true">
+                                <span class="step active"></span>
+                                <span class="step active"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                            <span class="mini-button blue">Continue</span>
+                        </div>
+                        <p class="system-clue">Validation, order state, payment status.</p>
+                        <p class="next-action">Complete, recover, or continue.</p>
+                    </article>
 
-            <div class="skill-category fade-in">
-                <h3>AWS Services</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Lambda</span>
-                    <span class="skill-tag">DynamoDB</span>
-                    <span class="skill-tag">S3</span>
-                    <span class="skill-tag">SQS</span>
-                    <span class="skill-tag">AppSync</span>
-                    <span class="skill-tag">CloudWatch</span>
-                    <span class="skill-tag">CloudFront</span>
-                    <span class="skill-tag">SES</span>
+                    <article class="evidence-card green">
+                        <h3 class="evidence-title"><span>4</span> Support visibility</h3>
+                        <p class="human-problem">Who can help me?</p>
+                        <div class="mini-ui" aria-label="Recreated support visibility surface">
+                            <strong>Support view</strong>
+                            <div class="mini-line long"></div>
+                            <span class="mini-button green">Context available</span>
+                        </div>
+                        <p class="system-clue">User state, support context, activity trail.</p>
+                        <p class="next-action">Faster support, clearer resolution.</p>
+                    </article>
                 </div>
-            </div>
+                <p class="board-footer">Human problem first. Product surface second. System depth third.</p>
+            </aside>
 
-            <div class="skill-category fade-in">
-                <h3>DevOps & Tools</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Terraform</span>
-                    <span class="skill-tag">CloudFormation</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub Actions</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">Postman</span>
-                    <span class="skill-tag">Integration Testing</span>
-                    <span class="skill-tag">npm/yarn</span>
-                    <span class="skill-tag">Webpack</span>
-                    <span class="skill-tag">ESLint/Prettier</span>
-                    <span class="skill-tag">Jira/Confluence</span>
+            <div class="hero-note-row">
+                <div class="safety-chip">
+                    <span class="safety-icon" aria-hidden="true">OK</span>
+                    <span>All UI work is recreated and anonymized. No real company UI or sensitive data.</span>
                 </div>
+                <p class="hero-aside-note hand-note">Systems are about people.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects" style="padding: 6rem 5%;">
-        <h2 class="section-title">Side Projects</h2>
-        <p class="section-subtitle">Fun experiments & explorations</p>
-        
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="education-card fade-in">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-                    <div>
-                        <h3 class="education-degree" style="font-size: 1.5rem;">🎮 Games Hub</h3>
-                        <p style="font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
-                            Browser-based puzzle games • Sudoku with notes, hints & timer
-                        </p>
-                    </div>
-                    <a href="https://games.shuhao-pang.com" target="_blank" style="font-family: 'IBM Plex Mono', monospace; color: var(--accent-primary); text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap;">
-                        Play Games →
-                    </a>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem;">
-                    <span class="skill-tag" style="font-size: 0.8rem;">JavaScript</span>
-                    <span class="skill-tag" style="font-size: 0.8rem;">HTML/CSS</span>
-                    <span class="skill-tag" style="font-size: 0.8rem;">Game Logic</span>
-                </div>
-            </div>
+        <section class="practice-note" aria-label="Practice note">
+            <p class="annotation">What I care about</p>
+            <p>I connect product intent, system behavior, and user-facing experience so complex workflows become clear, recoverable, and supportable.</p>
+        </section>
 
-            <div style="text-align: center; margin-top: 2.5rem; padding: 2rem; background: rgba(129, 177, 247, 0.05); border-radius: 15px; border: 1px dashed rgba(129, 177, 247, 0.3);">
-                <p style="font-family: 'IBM Plex Mono', monospace; color: var(--text-secondary); font-size: 0.95rem;">
-                    ✨ More projects on the way
+        <section class="section-block" id="systems" aria-labelledby="systems-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">proof, not just roles</p>
+                    <h2 class="section-title" id="systems-title">Selected Systems</h2>
+                </div>
+                <p class="section-copy">
+                    Public-safe system stories focused on product decisions, behavior patterns, and user outcomes. Internal architecture, proprietary logic, and sensitive implementation details stay out.
                 </p>
             </div>
-        </div>
-    </section>
 
-    <section id="education">
-        <h2 class="section-title">Education & Certifications</h2>
-        <p class="section-subtitle">Academic background and professional credentials</p>
-        
-        <div class="education-grid">
-            <div class="education-card fade-in">
-                <h3 class="education-degree">AWS Certified Cloud Practitioner</h3>
-                <p class="education-school">Amazon Web Services</p>
-                <p class="education-period">2024</p>
-                <div class="education-note">Professional Certification</div>
+            <div class="story-stack">
+                <article class="system-strip">
+                    <div class="system-strip-title">
+                        <span class="system-icon" aria-hidden="true">MP</span>
+                        <h3>Membership Platform</h3>
+                    </div>
+                    <div class="story-cell observation">
+                        <span class="story-label">Observation</span>
+                        <p>Benefits, seats, renewals, and permissions can confuse users fast.</p>
+                    </div>
+                    <div class="story-cell decision">
+                        <span class="story-label">Product decision</span>
+                        <p>Expose status and next actions before asking users to guess.</p>
+                    </div>
+                    <div class="story-cell system">
+                        <span class="story-label">System behind it</span>
+                        <p>Lifecycle rules, eligibility checks, entitlement state, rollout paths.</p>
+                    </div>
+                    <div class="story-cell outcome">
+                        <span class="story-label">Outcome</span>
+                        <p>Clearer member self-service and fewer support-heavy dead ends.</p>
+                    </div>
+                </article>
+
+                <article class="system-strip">
+                    <div class="system-strip-title">
+                        <span class="system-icon" aria-hidden="true">PI</span>
+                        <h3>Payment Infrastructure</h3>
+                    </div>
+                    <div class="story-cell observation">
+                        <span class="story-label">Observation</span>
+                        <p>Declines, retries, and delayed events create anxiety and ambiguity.</p>
+                    </div>
+                    <div class="story-cell decision">
+                        <span class="story-label">Product decision</span>
+                        <p>Make recovery visible and explain what happened in plain language.</p>
+                    </div>
+                    <div class="story-cell system">
+                        <span class="story-label">System behind it</span>
+                        <p>Provider events, transaction state, idempotency, audit trails.</p>
+                    </div>
+                    <div class="story-cell outcome">
+                        <span class="story-label">Outcome</span>
+                        <p>More reliable payment flows and clearer support investigation paths.</p>
+                    </div>
+                </article>
+
+                <article class="system-strip">
+                    <div class="system-strip-title">
+                        <span class="system-icon" aria-hidden="true">PC</span>
+                        <h3>Member Portal / Checkout</h3>
+                    </div>
+                    <div class="story-cell observation">
+                        <span class="story-label">Observation</span>
+                        <p>Users need to know where they are, what changed, and what is next.</p>
+                    </div>
+                    <div class="story-cell decision">
+                        <span class="story-label">Product decision</span>
+                        <p>Show progress, validation, recovery, and confirmation at every step.</p>
+                    </div>
+                    <div class="story-cell system">
+                        <span class="story-label">System behind it</span>
+                        <p>API contracts, UI states, permissions, order state, payment status.</p>
+                    </div>
+                    <div class="story-cell outcome">
+                        <span class="story-label">Outcome</span>
+                        <p>More confident users, cleaner handoffs, and supportable workflows.</p>
+                    </div>
+                </article>
+            </div>
+            <p class="section-note">Public-safe system stories. Patterns, decisions, and outcomes only &mdash; sensitive implementation details omitted.</p>
+        </section>
+
+        <section class="section-block" id="ui-work" aria-labelledby="ui-work-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">recreated evidence</p>
+                    <h2 class="section-title" id="ui-work-title">Interface Evidence Wall</h2>
+                </div>
+                <p class="section-copy">
+                    Recreated, simplified, and anonymized mini-surfaces showing user flows and system complexity. Not company screenshots.
+                </p>
             </div>
 
-            <div class="education-card fade-in">
-                <h3 class="education-degree">Master of Science in Information Technology</h3>
-                <p class="education-school">California Lutheran University</p>
-                <p class="education-period">2019 - 2021</p>
-                <div class="education-note">Graduate Scholarship Recipient</div>
+            <div class="evidence-wall">
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">1</span> Member Portal Dashboard</h3>
+                    <div class="surface-frame dashboard">
+                        <strong>Welcome back</strong>
+                        <div class="surface-grid">
+                            <div class="surface-stat">
+                                <div class="surface-label">Membership</div>
+                                <div class="surface-number">Active</div>
+                            </div>
+                            <div class="surface-stat">
+                                <div class="surface-label">Next billing</div>
+                                <div class="surface-number">May 24</div>
+                            </div>
+                            <div class="surface-stat">
+                                <div class="surface-label">Open access</div>
+                                <div class="surface-number">2</div>
+                            </div>
+                        </div>
+                        <div class="surface-row"><span>Recent activity</span><span>View all</span></div>
+                    </div>
+                    <p class="surface-annotation">make the next action obvious</p>
+                </article>
+
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">2</span> Membership Detail Page</h3>
+                    <div class="surface-frame detail">
+                        <div class="surface-rail" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="detail-stack">
+                            <strong>Team Plan <span class="status-pill">Active</span></strong>
+                            <div class="surface-row"><span>Seats</span><span>3 / 3</span></div>
+                            <div class="surface-row"><span>Renews</span><span>May 24</span></div>
+                            <div class="surface-row"><span>Benefits</span><span>Included</span></div>
+                        </div>
+                    </div>
+                    <p class="surface-annotation">show limits before renewal</p>
+                </article>
+
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">3</span> Checkout Flow</h3>
+                    <div class="surface-frame checkout">
+                        <div class="stepper" aria-hidden="true">
+                            <span class="step active"></span>
+                            <span class="step active"></span>
+                            <span class="step active"></span>
+                            <span class="step"></span>
+                        </div>
+                        <strong>Review your order</strong>
+                        <div class="checkout-body">
+                            <div class="surface-panel" aria-hidden="true"></div>
+                            <div class="surface-panel" aria-hidden="true"></div>
+                        </div>
+                        <span class="mini-button blue">Place order</span>
+                    </div>
+                    <p class="surface-annotation">show status before asking for payment</p>
+                </article>
+
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">4</span> Payment Method Management</h3>
+                    <div class="surface-frame payments">
+                        <strong>Payment methods</strong>
+                        <div class="card-row"><span class="card-brand">VISA</span><span>ending 4242</span><span class="status-pill">Primary</span></div>
+                        <div class="card-row"><span class="card-brand">AMEX</span><span>ending 1005</span><span>...</span></div>
+                        <div class="card-row"><span class="card-brand">MC</span><span>ending 8888</span><span>...</span></div>
+                    </div>
+                    <p class="surface-annotation">default is safe, changes are clear</p>
+                </article>
+
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">5</span> Renewal / Upgrade Flow</h3>
+                    <div class="surface-frame renewal">
+                        <div class="plan-panel">
+                            <strong>Current plan</strong>
+                            <div class="mini-line medium"></div>
+                            <div class="mini-line short"></div>
+                        </div>
+                        <span class="plan-arrow" aria-hidden="true">-&gt;</span>
+                        <div class="plan-panel">
+                            <strong>New plan</strong>
+                            <div class="mini-line long"></div>
+                            <div class="mini-line medium"></div>
+                            <span class="mini-button purple">Review</span>
+                        </div>
+                    </div>
+                    <p class="surface-annotation">compare, then commit</p>
+                </article>
+
+                <article class="surface-card">
+                    <h3 class="surface-title"><span class="surface-index">6</span> Validation / Error / Loading States</h3>
+                    <div class="surface-frame states">
+                        <div class="state-box">
+                            <strong>Validation</strong>
+                            <div class="mini-line long"></div>
+                            <span class="mini-button">Fix field</span>
+                        </div>
+                        <div class="state-box error">
+                            <strong>Error</strong>
+                            <p class="surface-label">Payment could not process.</p>
+                            <span class="mini-button">Try again</span>
+                        </div>
+                        <div class="state-box">
+                            <strong>Loading</strong>
+                            <span class="spinner" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <p class="surface-annotation">recovery path, not dead end</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" id="ai-workflow" aria-labelledby="ai-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">the loop I live in</p>
+                    <h2 class="section-title" id="ai-title">AI-Assisted Engineering Loop</h2>
+                </div>
+                <p class="section-copy">
+                    AI is part of my engineering loop, not the headline. It helps tighten planning, implementation, review, testing, debugging, and refactoring while judgment stays human.
+                </p>
             </div>
 
-            <div class="education-card fade-in">
-                <h3 class="education-degree">Bachelor of Business Administration in Finance</h3>
-                <p class="education-school">BNU-HKBU United International College</p>
-                <p class="education-period">2012 - 2016</p>
+            <div class="workflow-panel">
+                <div class="loop" aria-label="AI-assisted engineering loop">
+                    <article class="loop-step">
+                        <span class="loop-number">01</span>
+                        <h3>Notice</h3>
+                        <p>Spot friction, ambiguity, and risk.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">02</span>
+                        <h3>Plan</h3>
+                        <p>Name assumptions and split the work.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">03</span>
+                        <h3>Build</h3>
+                        <p>Ship small, reviewable slices.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">04</span>
+                        <h3>Test</h3>
+                        <p>Exercise states, failures, and flows.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">05</span>
+                        <h3>Review</h3>
+                        <p>Inspect diffs, behavior, and copy.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">06</span>
+                        <h3>Debug</h3>
+                        <p>Trace where reality diverged.</p>
+                    </article>
+                    <article class="loop-step">
+                        <span class="loop-number">07</span>
+                        <h3>Refactor</h3>
+                        <p>Simplify without losing behavior.</p>
+                    </article>
+                    <div class="cycle-cue">next cycle: Refactor -&gt; Notice</div>
+                </div>
+                <aside class="loop-note">
+                    <strong>AI speeds up the loop. Judgment stays human.</strong>
+                    <ul>
+                        <li>Workflow design: make the path explicit.</li>
+                        <li>Harness engineering: build repeatable checks.</li>
+                        <li>Loop engineering: measure, learn, improve.</li>
+                    </ul>
+                </aside>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="languages" style="padding: 6rem 5%;">
-        <h2 class="section-title">Languages</h2>
-        <p class="section-subtitle">Multilingual communication</p>
-        
-        <div class="skills-grid" style="max-width: 800px; margin: 0 auto;">
-            <div class="skill-category fade-in" style="text-align: center;">
-                <h3>English</h3>
-                <p style="color: var(--text-secondary); margin-top: 0.5rem;">Fluent</p>
+        <section class="section-block" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">labs and explorations</p>
+                    <h2 class="section-title" id="projects-title">Projects &amp; Labs</h2>
+                </div>
+                <p class="section-copy">
+                    Public projects and planned labs where I explore interaction states, product loops, recommendation workflows, and small systems outside proprietary work.
+                </p>
             </div>
 
-            <div class="skill-category fade-in" style="text-align: center;">
-                <h3>Mandarin Chinese</h3>
-                <p style="color: var(--text-secondary); margin-top: 0.5rem;">Native</p>
+            <div class="labs-panel">
+                <article class="lab-row">
+                    <div class="lab-icon" aria-hidden="true">GH</div>
+                    <div>
+                        <h3>Games Hub</h3>
+                        <p>Browser-based games and puzzles with game-state logic, notes, timers, progress, and lightweight interaction systems.</p>
+                        <div class="pipeline" aria-label="Games Hub focus areas">
+                            <span>Game logic</span>
+                            <span>Interaction states</span>
+                            <span>Browser UI</span>
+                            <span>Play history</span>
+                        </div>
+                        <div class="game-state-preview" aria-hidden="true">
+                            <span class="active">8</span>
+                            <span>3</span>
+                            <span></span>
+                            <span></span>
+                            <span class="active">5</span>
+                            <span>1</span>
+                            <span>2</span>
+                            <span></span>
+                            <span class="active">9</span>
+                        </div>
+                    </div>
+                    <a class="lab-status" href="https://games.shuhao-pang.com" target="_blank" rel="noopener noreferrer">Play Games</a>
+                </article>
+
+                <article class="lab-row">
+                    <div class="lab-icon" aria-hidden="true">AI</div>
+                    <div>
+                        <h3>AI-Assisted Music Discovery Engine</h3>
+                        <p>A planned lab for taste modeling, recommendation loops, listening notes, and human-in-the-loop discovery workflows.</p>
+                        <div class="mini-pipeline" aria-label="Music discovery pipeline">
+                            <span>Listening intent</span>
+                            <span>Taste profile</span>
+                            <span>Retrieval</span>
+                            <span>Ranking</span>
+                            <span>Feedback</span>
+                        </div>
+                    </div>
+                    <span class="lab-status">In Progress / Planned</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" id="about" aria-labelledby="about-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">the fuller note</p>
+                    <h2 class="section-title" id="about-title">About</h2>
+                </div>
+                <p class="section-copy">
+                    I am a product-minded full-stack engineer who likes the messy middle where user intent, API boundaries, lifecycle rules, payment state, permissions, rollout, debugging, and support all meet.
+                </p>
             </div>
 
-            <div class="skill-category fade-in" style="text-align: center;">
-                <h3>Cantonese</h3>
-                <p style="color: var(--text-secondary); margin-top: 0.5rem;">Fluent</p>
+            <div class="about-panel">
+                <div class="about-copy">
+                    <p>I care about product systems because the user only sees the surface, but trust is shaped by everything underneath: data flow, validation, permissions, retries, failure recovery, and whether support can understand what happened.</p>
+                    <p>My strongest public-safe themes are membership platforms, payment infrastructure, and portal / checkout workflows, but the broader practice is connecting product intent to reliable system behavior and clear user-facing states.</p>
+                    <p>I am also developing an AI-assisted engineering practice that helps me plan, test, review, debug, and refactor with tighter feedback loops while keeping human judgment responsible for product quality.</p>
+                </div>
+                <div class="about-points">
+                    <article class="about-point">
+                        <h3>Human problem first</h3>
+                        <p>What is confusing, blocked, risky, or hard to support?</p>
+                    </article>
+                    <article class="about-point">
+                        <h3>Product surface second</h3>
+                        <p>What should the user see, understand, and do next?</p>
+                    </article>
+                    <article class="about-point">
+                        <h3>System depth third</h3>
+                        <p>What state, API contract, permission, rollout, or debugging path makes it reliable?</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Let's connect</p>
-        
-        <div class="contact-content fade-in">
-            <p class="contact-text">
-                I'm currently open to new opportunities and interesting projects. 
-                Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
+        <section class="section-block" id="experience" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">timeline evidence</p>
+                    <h2 class="section-title" id="experience-title">Experience</h2>
+                </div>
+                <p class="section-copy">
+                    Experience supports the portfolio story. The main proof lives in systems, surfaces, and workflow patterns rather than job titles alone.
+                </p>
+            </div>
+
+            <div class="experience-panel">
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Senior Software Engineer</h3>
+                            <p class="experience-company">Anchor Operating System</p>
+                        </div>
+                        <span class="experience-period">Jan. 2024 - Present</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Led full-stack product systems work across membership, payment, portal, and checkout domains in high-volume commerce environments.</li>
+                        <li>Translated product requirements into API behavior, data flow, UI states, rollout plans, and production debugging paths.</li>
+                        <li>Improved payment and subscription workflows with a focus on recoverable failures, operational visibility, and supportable user experiences.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Full-Stack Software Engineer</h3>
+                            <p class="experience-company">Anchor Operating System</p>
+                        </div>
+                        <span class="experience-period">Jan. 2022 - Jan. 2024</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Built and maintained user-facing commerce and membership workflows across frontend surfaces, APIs, and operational tooling.</li>
+                        <li>Worked through validation, permissions, loading, error, empty, upgrade, renewal, and checkout states that shape user trust.</li>
+                        <li>Partnered across product and engineering to make ambiguous workflow behavior easier to reason about and ship safely.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Software Engineer</h3>
+                            <p class="experience-company">Earlier product and engineering roles</p>
+                        </div>
+                        <span class="experience-period">2019 - 2021</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Developed full-stack web features, integrations, and user workflows across product-facing applications.</li>
+                        <li>Built a foundation in API design, frontend state, data modeling, debugging, and cross-functional delivery.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" id="skills" aria-labelledby="skills-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">tools and patterns</p>
+                    <h2 class="section-title" id="skills-title">Skills</h2>
+                </div>
+                <p class="section-copy">
+                    The stack matters because it connects product surfaces to system behavior. The practice matters because those pieces need to stay understandable.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <article class="skill-group">
+                    <h3>Product Systems</h3>
+                    <div class="tag-list">
+                        <span class="tag">API Design</span>
+                        <span class="tag">Data Flow</span>
+                        <span class="tag">Permissions</span>
+                        <span class="tag">Rollout Planning</span>
+                        <span class="tag">Debugging</span>
+                        <span class="tag">Reliability</span>
+                    </div>
+                </article>
+                <article class="skill-group">
+                    <h3>Frontend</h3>
+                    <div class="tag-list">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">UI States</span>
+                        <span class="tag">Accessibility</span>
+                    </div>
+                </article>
+                <article class="skill-group">
+                    <h3>Backend</h3>
+                    <div class="tag-list">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Payment Flows</span>
+                        <span class="tag">Async State</span>
+                        <span class="tag">Observability</span>
+                    </div>
+                </article>
+                <article class="skill-group">
+                    <h3>AI-Assisted Engineering</h3>
+                    <div class="tag-list">
+                        <span class="tag">Planning</span>
+                        <span class="tag">Review</span>
+                        <span class="tag">Testing</span>
+                        <span class="tag">Debugging</span>
+                        <span class="tag">Refactoring</span>
+                        <span class="tag">Harness Design</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block" id="education" aria-labelledby="education-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">background</p>
+                    <h2 class="section-title" id="education-title">Education &amp; Languages</h2>
+                </div>
+                <p class="section-copy">A compact reference section for formal background and communication range.</p>
+            </div>
+
+            <div class="education-grid">
+                <article class="education-card">
+                    <h3>Education</h3>
+                    <p>Computer science and software engineering background, with professional focus on product engineering and full-stack systems.</p>
+                </article>
+                <article class="education-card">
+                    <h3>Languages</h3>
+                    <p>English and Mandarin Chinese.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-panel" id="contact" aria-labelledby="contact-title">
+            <div>
+                <h2 id="contact-title">Want to talk systems?</h2>
+                <p>I am interested in product engineering roles where the work spans user experience, system design, reliability, and real production workflows.</p>
+            </div>
             <div class="contact-links">
-                <a href="mailto:shuhaopang.portia@gmail.com" class="contact-link" id="emailBtn">
-                    📧 Email Me
-                </a>
-                <a href="https://github.com/portiaPangsh" target="_blank" class="contact-link">
-                    💻 GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/shuhao-pang" target="_blank" class="contact-link">
-                    💼 LinkedIn
-                </a>
+                <a class="primary-button" href="mailto:shuhao.pang@gmail.com">Email me</a>
+                <a class="nav-action" href="https://www.linkedin.com/in/shuhao-pang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="nav-action" href="https://github.com/portiaPangsh" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="nav-action" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <p>Crafted by Shuhao Pang (Portia) © 2026</p>
+    <footer class="footer">
+        <p>&copy; 2026 Shuhao Pang. Product systems portfolio, built as a lightweight static site.</p>
     </footer>
 
     <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        const nav = document.querySelector('.site-nav');
+        const menuButton = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        menuButton.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('nav-open');
+            menuButton.setAttribute('aria-expanded', String(isOpen));
         });
 
-        document.getElementById('downloadResume').addEventListener('click', function(e) {
-            e.preventDefault();
-            const link = document.createElement('a');
-            link.href = 'Resume_Shuhao_Pang.pdf';
-            link.download = 'Shuhao_Pang_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-
-        document.getElementById('emailBtn').addEventListener('click', function(e) {
-            const email = 'shuhaopang.portia@gmail.com';
-            navigator.clipboard.writeText(email).then(() => {
-                const originalText = this.innerHTML;
-                this.innerHTML = '✅ Email Copied!';
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy email:', err);
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-open');
+                menuButton.setAttribute('aria-expanded', 'false');
             });
         });
     </script>
