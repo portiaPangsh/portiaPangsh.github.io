@@ -1,10 +1,12 @@
-# Product Systems Portfolio
+# Senior Full-Stack Engineer | Product Systems Portfolio
 
-Personal website for Shuhao Pang (Portia), repositioned from a resume-style full-stack engineer page into an annotated product systems portfolio.
+Personal website for Shuhao Pang (Portia), a senior full-stack engineer with an annotated product systems portfolio.
 
 Live site: [www.shuhao-pang.com](https://www.shuhao-pang.com)
 
 ## Positioning
+
+Senior Full-Stack Engineer | Product Systems Portfolio
 
 I turn messy workflows into product systems people can trust.
 
