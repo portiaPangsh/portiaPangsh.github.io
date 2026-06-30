@@ -1096,8 +1096,18 @@
         }
 
         .loop-note strong {
+            display: grid;
+            gap: 0.1rem;
             font-size: 1.4rem;
             line-height: 1.2;
+        }
+
+        .loop-note strong span {
+            display: block;
+        }
+
+        .loop-note strong .keep-together {
+            white-space: nowrap;
         }
 
         .loop-note ul {
@@ -2061,7 +2071,7 @@
                     <div class="cycle-cue">next cycle: Refactor -&gt; Notice</div>
                 </div>
                 <aside class="loop-note">
-                    <strong>AI speeds up the loop. Judgment stays human.</strong>
+                    <strong><span>AI speeds up the loop.</span><span class="keep-together">Judgment stays human.</span></strong>
                     <ul>
                         <li>Workflow design: make the path explicit.</li>
                         <li>Harness engineering: build repeatable checks.</li>
