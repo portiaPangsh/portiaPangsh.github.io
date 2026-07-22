@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shuhao Pang (Portia) is a senior full-stack engineer building product systems people can trust.">
-    <title>Shuhao Pang (Portia) - Senior Full-Stack Engineer | Product Systems Portfolio</title>
+    <meta name="description" content="Shuhao Pang is a senior full-stack engineer working across membership, payments, checkout, and cloud systems.">
+    <title>Shuhao Pang | Senior Full-Stack Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         :root {
             --color-bg: #fffaf2;
@@ -23,19 +23,13 @@
             --color-blue: #058cd7;
             --color-pink: #fb7da8;
             --color-line: #111111;
-            --color-border: rgba(8, 8, 13, 0.16);
-            --shadow-soft: 0 20px 60px rgba(8, 8, 13, 0.08);
-            --shadow-note: 8px 10px 0 rgba(8, 8, 13, 0.08);
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 32px;
-            --max-width: 1440px;
+            --color-border: rgba(8, 8, 13, 0.17);
+            --shadow-note: 7px 8px 0 var(--color-yellow);
+            --max-width: 1180px;
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         html {
@@ -43,1634 +37,657 @@
         }
 
         body {
-            min-width: 320px;
+            margin: 0;
             background:
                 radial-gradient(circle at 8% 8%, rgba(251, 125, 168, 0.16), transparent 26rem),
-                radial-gradient(circle at 88% 14%, rgba(85, 44, 183, 0.12), transparent 24rem),
-                linear-gradient(180deg, #fffaf2 0%, #fffaf2 48%, #f5eefb 100%);
+                var(--color-bg);
             color: var(--color-ink);
-            font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: "Space Grotesk", Arial, sans-serif;
+            font-size: 16px;
             line-height: 1.55;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            background-image:
-                linear-gradient(rgba(8, 8, 13, 0.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(8, 8, 13, 0.035) 1px, transparent 1px);
-            background-size: 76px 76px;
-            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 78%);
         }
 
         a {
             color: inherit;
         }
 
-        button,
-        input,
-        textarea {
-            font: inherit;
+        a:focus-visible {
+            outline: 3px solid var(--color-coral);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.7rem;
+            left: 0.7rem;
+            z-index: 10;
+            padding: 0.7rem 0.9rem;
+            background: var(--color-ink);
+            color: #fff;
+            font-weight: 700;
+            transform: translateY(-150%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            border-bottom: 2px solid var(--color-line);
+            background: rgba(255, 250, 242, 0.94);
+            backdrop-filter: blur(12px);
         }
 
         .site-nav {
-            position: sticky;
-            top: 0;
-            z-index: 30;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
-            width: min(100% - 48px, var(--max-width));
+            gap: 1.5rem;
+            width: min(100% - 40px, var(--max-width));
+            min-height: 74px;
             margin: 0 auto;
-            padding: 1.2rem 0;
-        }
-
-        .site-nav::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 86px;
-            z-index: -1;
-            background: rgba(255, 250, 242, 0.86);
-            border-bottom: 1px solid rgba(8, 8, 13, 0.08);
-            backdrop-filter: blur(18px);
         }
 
         .brand {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 1.1rem;
+            color: var(--color-ink);
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: -0.035em;
             text-decoration: none;
             white-space: nowrap;
         }
 
-        .brand-mark {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1;
-        }
-
-        .brand-mark span {
-            color: var(--color-purple);
-        }
-
-        .brand-note {
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.35rem;
-            transform: rotate(-2deg);
+        .brand span {
+            color: var(--color-pink);
         }
 
         .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: clamp(0.9rem, 2vw, 2.2rem);
+            flex: 1;
+            justify-content: flex-end;
+            gap: clamp(0.9rem, 2.2vw, 1.8rem);
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
 
         .nav-links a {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            min-height: 36px;
-            color: var(--color-ink);
-            font-size: 0.96rem;
-            font-weight: 700;
+            padding-block: 0.35rem;
+            color: var(--color-muted);
+            font-size: 0.92rem;
+            font-weight: 600;
             text-decoration: none;
             white-space: nowrap;
         }
 
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0.18rem;
-            height: 0.2rem;
-            z-index: -1;
-            background: var(--color-yellow);
-            border-radius: 999px;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 160ms ease;
+        .nav-links a:hover {
+            color: var(--color-purple);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a:focus-visible::after {
-            transform: scaleX(1);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .nav-action,
-        .primary-button,
-        .secondary-button {
+        .nav-resume,
+        .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.55rem;
-            min-height: 44px;
-            border-radius: 10px;
+            min-height: 42px;
             border: 2px solid var(--color-line);
-            color: var(--color-ink);
+            border-radius: 9px;
             font-weight: 700;
             line-height: 1;
             text-decoration: none;
+            transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+        }
+
+        .nav-resume {
+            padding: 0.7rem 0.9rem;
+            background: var(--color-panel);
+            box-shadow: 3px 3px 0 rgba(8, 8, 13, 0.14);
+            font-size: 0.88rem;
             white-space: nowrap;
-            box-shadow: 4px 4px 0 rgba(8, 8, 13, 0.14);
         }
 
-        .nav-action {
-            padding: 0.72rem 1rem;
-            background: var(--color-panel);
-        }
-
-        .primary-button {
-            padding: 1rem 1.35rem;
-            background: var(--color-purple);
-            color: #ffffff;
-        }
-
-        .secondary-button {
-            min-height: 40px;
-            padding: 0.82rem 1rem;
-            border-color: transparent;
-            background: transparent;
-            box-shadow: none;
-        }
-
-        .secondary-button span {
-            border-bottom: 0.22rem solid var(--color-purple);
-        }
-
-        .menu-toggle {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border: 2px solid var(--color-line);
-            border-radius: 10px;
-            background: var(--color-panel);
-            box-shadow: 4px 4px 0 rgba(8, 8, 13, 0.14);
-            cursor: pointer;
-        }
-
-        .menu-toggle span,
-        .menu-toggle span::before,
-        .menu-toggle span::after {
-            display: block;
-            width: 18px;
-            height: 2px;
-            margin: 0 auto;
-            background: var(--color-ink);
-            border-radius: 999px;
-            content: "";
-        }
-
-        .menu-toggle span::before {
-            transform: translateY(-6px);
-        }
-
-        .menu-toggle span::after {
-            transform: translateY(4px);
+        .nav-resume:hover,
+        .button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 rgba(8, 8, 13, 0.14);
         }
 
         main {
-            width: min(100% - 48px, var(--max-width));
+            width: min(100% - 40px, var(--max-width));
             margin: 0 auto;
         }
 
         section {
-            scroll-margin-top: 110px;
+            scroll-margin-top: 96px;
         }
 
         .hero {
-            min-height: min(860px, calc(100vh - 86px));
             display: grid;
-            grid-template-columns: minmax(0, 0.86fr) minmax(560px, 1.14fr);
-            align-items: center;
-            gap: clamp(2rem, 5vw, 5rem);
-            padding: clamp(3rem, 6vw, 5.8rem) 0 clamp(3rem, 5vw, 5rem);
-        }
-
-        .hero-copy {
-            position: relative;
-            max-width: 660px;
-        }
-
-        .hello-note,
-        .hand-note,
-        .annotation {
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            color: var(--color-pink);
-            font-size: clamp(1.25rem, 2vw, 1.7rem);
-            line-height: 1.1;
-        }
-
-        .hello-note {
-            display: inline-block;
-            margin-bottom: 1.1rem;
-            font-size: clamp(1.4rem, 2.1vw, 1.9rem);
-            transform: rotate(-2deg);
+            grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+            align-items: end;
+            gap: clamp(2rem, 7vw, 7rem);
+            min-height: 620px;
+            padding: clamp(4.25rem, 9vw, 7.75rem) 0 clamp(4.5rem, 7vw, 6.5rem);
         }
 
         .hero-title {
-            max-width: 760px;
-            font-size: clamp(3.4rem, 4.5vw, 5.4rem);
+            max-width: 800px;
+            margin: 0;
+            font-size: clamp(4.1rem, 9vw, 7.4rem);
             font-weight: 700;
-            letter-spacing: -0.055em;
-            line-height: 0.98;
+            letter-spacing: -0.04em;
+            line-height: 0.87;
+            text-wrap: balance;
         }
 
-        .scribble {
-            position: relative;
-            display: inline;
-            padding: 0 0.04em;
-            background: linear-gradient(180deg, transparent 56%, rgba(255, 197, 103, 0.86) 56%);
-            border-radius: 999px 44% 58% 999px;
-            box-decoration-break: clone;
-            -webkit-box-decoration-break: clone;
+        .hero-role {
+            max-width: 710px;
+            margin: 1.5rem 0 0;
+            color: var(--color-purple);
+            font-size: clamp(1.3rem, 2.1vw, 1.85rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
         }
 
-        .scribble::after {
-            content: none;
-        }
-
-        .circle-mark {
-            position: relative;
-            display: inline-block;
-        }
-
-        .circle-mark::after {
-            content: "";
-            position: absolute;
-            inset: 0.08em -0.1em -0.03em -0.13em;
-            border: 0.08em solid var(--color-pink);
-            border-radius: 52% 48% 48% 54%;
-            transform: rotate(-4deg);
-            pointer-events: none;
-        }
-
-        .hero-subcopy {
-            max-width: 660px;
-            margin-top: 1.8rem;
-            color: var(--color-ink);
-            font-size: clamp(1.05rem, 1.45vw, 1.36rem);
+        .hero-lede {
+            max-width: 670px;
+            margin: 1.45rem 0 0;
+            font-size: clamp(1.05rem, 1.55vw, 1.28rem);
             line-height: 1.65;
+            text-wrap: pretty;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
+            gap: 0.85rem;
             margin-top: 2rem;
         }
 
-        .safety-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: fit-content;
-            max-width: 100%;
-            margin-top: 2rem;
-            padding: 0.9rem 1.1rem;
-            border: 2px dashed rgba(8, 8, 13, 0.25);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.48);
-            color: var(--color-ink);
-            font-size: 0.9rem;
-            font-weight: 600;
+        .button {
+            padding: 0.93rem 1.05rem;
         }
 
-        .hero-note-row {
-            grid-column: 1 / -1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-top: clamp(-2.4rem, -2vw, -0.75rem);
-        }
-
-        .hero-note-row .safety-chip,
-        .hero-note-row .hero-aside-note {
-            margin-top: 0;
-        }
-
-        .safety-icon {
-            display: inline-grid;
-            place-items: center;
-            width: 34px;
-            height: 34px;
-            flex: 0 0 34px;
-            border: 2px solid var(--color-line);
-            border-radius: 10px;
-            background: #ffffff;
-        }
-
-        .hero-aside-note {
-            max-width: 360px;
-            margin: 1.3rem 0 0 auto;
-            color: var(--color-purple);
-            transform: rotate(-2deg);
-        }
-
-        .system-board {
-            position: relative;
-            padding: clamp(1.25rem, 2vw, 2rem);
-            border: 3px solid var(--color-line);
-            border-radius: 32px;
-            background: rgba(255, 253, 248, 0.88);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .system-board::after {
-            content: "";
-            position: absolute;
-            right: clamp(1.2rem, 2vw, 2rem);
-            bottom: clamp(1.2rem, 2vw, 2rem);
-            width: 118px;
-            height: 22px;
-            background: rgba(255, 197, 103, 0.7);
-            transform: rotate(-3deg);
-            border-radius: 999px;
-        }
-
-        .board-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 1.35rem;
-        }
-
-        .board-title {
-            display: inline-block;
-            padding: 0.16rem 0.9rem 0.26rem;
-            background: rgba(255, 197, 103, 0.72);
-            border-radius: 999px 44% 48% 999px;
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: clamp(1.65rem, 2.5vw, 2.1rem);
-            line-height: 1;
-            transform: rotate(-1deg);
-        }
-
-        .board-date {
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.35rem;
-        }
-
-        .evidence-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0.75rem;
-        }
-
-        .evidence-card {
-            display: grid;
-            gap: 0.78rem;
-            min-width: 0;
-            min-height: 100%;
-            padding: 0.85rem;
-            border: 2px solid var(--color-line);
-            border-radius: 18px;
-            background: #ffffff;
-        }
-
-        .evidence-card.pink {
-            background: rgba(251, 125, 168, 0.15);
-        }
-
-        .evidence-card.yellow {
-            background: rgba(255, 197, 103, 0.22);
-        }
-
-        .evidence-card.blue {
-            background: rgba(5, 140, 215, 0.12);
-        }
-
-        .evidence-card.green {
-            background: rgba(0, 153, 94, 0.12);
-        }
-
-        .evidence-title {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.48rem;
-            font-size: clamp(0.84rem, 0.92vw, 0.98rem);
-            font-weight: 700;
-            line-height: 1.16;
-            overflow-wrap: anywhere;
-        }
-
-        .evidence-title span {
-            display: inline-grid;
-            place-items: center;
-            width: 24px;
-            height: 24px;
-            flex: 0 0 24px;
-            border-radius: 999px;
-            background: var(--color-ink);
-            color: #ffffff;
-            font-size: 0.85rem;
-        }
-
-        .human-problem {
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.25rem;
-            line-height: 1.1;
-        }
-
-        .mini-ui {
-            display: grid;
-            gap: 0.5rem;
-            width: 100%;
-            min-width: 0;
-            min-height: 112px;
-            padding: 0.75rem;
-            overflow: hidden;
-            border: 1.5px solid rgba(8, 8, 13, 0.45);
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.86);
-        }
-
-        .mini-ui strong {
-            font-size: 0.86rem;
-        }
-
-        .mini-line {
-            height: 0.54rem;
-            border-radius: 999px;
-            background: rgba(8, 8, 13, 0.15);
-        }
-
-        .mini-line.short {
-            width: 42%;
-        }
-
-        .mini-line.medium {
-            width: 68%;
-        }
-
-        .mini-line.long {
-            width: 88%;
-        }
-
-        .mini-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: fit-content;
-            min-height: 30px;
-            padding: 0.35rem 0.7rem;
-            border: 1.5px solid currentColor;
-            border-radius: 8px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            max-width: 100%;
-            text-align: center;
-            white-space: normal;
-        }
-
-        .mini-button.purple {
+        .button-primary {
             background: var(--color-purple);
-            color: #ffffff;
+            color: #fff;
         }
 
-        .mini-button.blue {
-            background: var(--color-blue);
-            color: #ffffff;
+        .button-secondary {
+            background: var(--color-panel);
         }
 
-        .mini-button.green {
-            background: rgba(0, 153, 94, 0.2);
-            color: var(--color-ink);
+        .button-tertiary {
+            border-color: transparent;
+            box-shadow: none;
+            color: var(--color-purple);
+            text-decoration: underline;
+            text-decoration-color: var(--color-yellow);
+            text-decoration-thickness: 0.25rem;
+            text-underline-offset: 0.18rem;
         }
 
-        .system-clue {
-            padding-top: 0.65rem;
-            border-top: 1px dashed rgba(8, 8, 13, 0.28);
-            color: var(--color-muted);
-            font-size: 0.82rem;
-            font-weight: 600;
-            overflow-wrap: anywhere;
+        .button-tertiary:hover {
+            box-shadow: none;
         }
 
-        .next-action {
-            color: var(--color-ink);
-            font-size: 0.86rem;
-            font-weight: 700;
-            overflow-wrap: anywhere;
-        }
-
-        .board-footer {
-            position: relative;
-            z-index: 1;
-            margin-top: 1.1rem;
-            color: var(--color-ink);
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.25rem;
-            text-align: center;
-        }
-
-        .practice-note {
-            display: grid;
-            grid-template-columns: 0.72fr 1.28fr;
-            gap: clamp(1.5rem, 3vw, 3rem);
-            align-items: center;
-            margin: 0 0 clamp(4rem, 7vw, 7rem);
-            padding: clamp(1.35rem, 2.5vw, 2.2rem);
+        .hero-profile {
+            align-self: stretch;
+            padding: clamp(1.55rem, 3vw, 2.25rem);
             border: 2px solid var(--color-line);
-            border-radius: 24px;
-            background: rgba(243, 236, 250, 0.72);
+            border-radius: 12px;
+            background: var(--color-bg-lavender);
             box-shadow: var(--shadow-note);
         }
 
-        .practice-note .annotation {
-            color: var(--color-purple);
+        .hero-profile dl {
+            margin: 0;
         }
 
-        .practice-note p {
-            color: var(--color-ink);
-            font-size: clamp(1.1rem, 1.55vw, 1.42rem);
-            font-weight: 600;
-            line-height: 1.55;
+        .hero-profile div + div {
+            margin-top: 1.5rem;
         }
 
-        .section-block {
-            margin-bottom: clamp(4.5rem, 8vw, 8rem);
-        }
-
-        .section-heading {
-            display: grid;
-            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-            gap: clamp(1.5rem, 4vw, 4rem);
-            align-items: end;
-            margin-bottom: clamp(1.8rem, 3vw, 3rem);
-        }
-
-        .section-kicker {
-            margin-bottom: 0.8rem;
-            color: var(--color-purple);
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.35rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.15rem, 3.6vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.055em;
-            line-height: 0.98;
-        }
-
-        .section-copy {
-            max-width: 760px;
+        dt {
             color: var(--color-muted);
-            font-size: clamp(1rem, 1.35vw, 1.25rem);
-            line-height: 1.7;
-        }
-
-        .story-stack {
-            display: grid;
-            gap: 1.15rem;
-        }
-
-        .system-strip {
-            display: grid;
-            grid-template-columns: 1.05fr repeat(4, minmax(0, 1fr));
-            gap: 0.9rem;
-            align-items: stretch;
-            padding: 1rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.24);
-            border-left: 6px solid var(--color-purple);
-            border-radius: 24px;
-            background: rgba(255, 253, 248, 0.86);
-            box-shadow: 0 12px 34px rgba(8, 8, 13, 0.06);
-        }
-
-        .system-strip-title {
-            display: grid;
-            align-content: center;
-            gap: 0.65rem;
-            padding: 1rem;
-            border-radius: 16px;
-            background: var(--color-bg-lavender);
-        }
-
-        .system-icon {
-            display: inline-grid;
-            place-items: center;
-            width: 48px;
-            height: 48px;
-            border: 2px solid var(--color-line);
-            border-radius: 14px;
-            background: #ffffff;
-            color: var(--color-purple);
-            font-weight: 700;
-        }
-
-        .system-strip h3 {
-            font-size: clamp(1.05rem, 1.3vw, 1.3rem);
-            line-height: 1.15;
-        }
-
-        .story-cell {
-            display: grid;
-            gap: 0.5rem;
-            padding: 0.85rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.12);
-            border-radius: 14px;
-            background: #ffffff;
-        }
-
-        .story-cell.observation {
-            background: rgba(85, 44, 183, 0.08);
-        }
-
-        .story-cell.decision {
-            background: rgba(255, 197, 103, 0.2);
-        }
-
-        .story-cell.system {
-            background: rgba(5, 140, 215, 0.12);
-        }
-
-        .story-cell.outcome {
-            background: rgba(0, 153, 94, 0.12);
-        }
-
-        .story-label {
-            color: var(--color-muted);
-            font-size: 0.72rem;
+            font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
 
-        .story-cell p {
-            color: var(--color-ink);
-            font-size: 0.94rem;
-            font-weight: 600;
-            line-height: 1.42;
-        }
-
-        .section-note {
-            margin-top: 1rem;
-            padding: 1rem 1.15rem;
-            border: 1.5px dashed rgba(8, 8, 13, 0.25);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.55);
-            color: var(--color-muted);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .evidence-wall {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .surface-card {
-            position: relative;
-            display: grid;
-            gap: 0.9rem;
-            padding: 1rem;
-            border: 2px solid rgba(8, 8, 13, 0.2);
-            border-radius: 22px;
-            background: rgba(255, 253, 248, 0.9);
-            box-shadow: 0 12px 34px rgba(8, 8, 13, 0.05);
-        }
-
-        .surface-title {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 1.02rem;
-            line-height: 1.2;
-        }
-
-        .surface-index {
-            display: inline-grid;
-            place-items: center;
-            width: 24px;
-            height: 24px;
-            flex: 0 0 24px;
-            border-radius: 999px;
-            background: var(--color-ink);
-            color: #ffffff;
-            font-size: 0.78rem;
-        }
-
-        .surface-frame {
-            min-height: 238px;
-            padding: 0.9rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.4);
-            border-radius: 16px;
-            background: #ffffff;
-            overflow: hidden;
-        }
-
-        .surface-frame.dashboard {
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            gap: 0.75rem;
-        }
-
-        .surface-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.55rem;
-        }
-
-        .surface-stat,
-        .surface-row,
-        .surface-panel {
-            border: 1px solid rgba(8, 8, 13, 0.14);
-            border-radius: 12px;
-            background: #fffdf8;
-        }
-
-        .surface-stat {
-            min-height: 56px;
-            padding: 0.5rem;
-        }
-
-        .surface-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 36px;
-            padding: 0.5rem;
-            font-size: 0.72rem;
-            font-weight: 700;
-        }
-
-        .surface-label {
-            color: var(--color-muted);
-            font-size: 0.66rem;
-            font-weight: 700;
-        }
-
-        .surface-number {
-            color: var(--color-ink);
+        dd {
+            margin: 0.3rem 0 0;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
-        .surface-frame.detail {
-            display: grid;
-            grid-template-columns: 0.34fr 0.66fr;
-            gap: 0.7rem;
-        }
-
-        .surface-rail {
-            display: grid;
-            align-content: start;
-            gap: 0.5rem;
-            padding: 0.65rem;
-            border-radius: 12px;
-            background: rgba(85, 44, 183, 0.09);
-        }
-
-        .surface-rail span {
-            height: 0.55rem;
-            border-radius: 999px;
-            background: rgba(8, 8, 13, 0.24);
-        }
-
-        .detail-stack {
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            width: fit-content;
-            min-height: 24px;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-            background: rgba(0, 153, 94, 0.14);
-            color: var(--color-green);
-            font-size: 0.68rem;
-            font-weight: 700;
-        }
-
-        .surface-frame.checkout {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .stepper {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.3rem;
-            align-items: center;
-        }
-
-        .step {
-            height: 8px;
-            border-radius: 999px;
-            background: rgba(8, 8, 13, 0.14);
-        }
-
-        .step.active {
-            background: var(--color-blue);
-        }
-
-        .checkout-body {
-            display: grid;
-            grid-template-columns: 0.62fr 0.38fr;
-            gap: 0.75rem;
-        }
-
-        .surface-frame.payments {
-            display: grid;
-            align-content: start;
-            gap: 0.55rem;
-        }
-
-        .card-row {
-            display: grid;
-            grid-template-columns: 32px 1fr auto;
-            gap: 0.5rem;
-            align-items: center;
-            min-height: 44px;
-            padding: 0.45rem;
-            border: 1px solid rgba(8, 8, 13, 0.12);
-            border-radius: 10px;
-        }
-
-        .card-brand {
-            display: grid;
-            place-items: center;
-            height: 24px;
-            border-radius: 6px;
-            background: var(--color-blue);
-            color: #ffffff;
-            font-size: 0.58rem;
-            font-weight: 700;
-        }
-
-        .surface-frame.renewal {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 0.65rem;
-            align-items: center;
-        }
-
-        .plan-panel {
-            min-height: 160px;
-            padding: 0.65rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.18);
-            border-radius: 14px;
-            background: #fffdf8;
-        }
-
-        .plan-arrow {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .surface-frame.states {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.55rem;
-        }
-
-        .state-box {
-            display: grid;
-            align-content: center;
-            justify-items: center;
-            gap: 0.45rem;
-            min-height: 156px;
-            padding: 0.55rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.15);
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .state-box.error {
-            background: rgba(253, 90, 70, 0.1);
-            border-color: rgba(253, 90, 70, 0.45);
-        }
-
-        .spinner {
-            width: 28px;
-            height: 28px;
-            border: 4px solid rgba(8, 8, 13, 0.12);
-            border-top-color: var(--color-blue);
-            border-radius: 999px;
-        }
-
-        .surface-annotation {
-            margin-left: auto;
-            color: var(--color-ink);
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.08rem;
-            line-height: 1.05;
-            text-align: right;
-        }
-
-        .workflow-panel,
-        .labs-panel,
-        .about-panel,
-        .experience-panel,
-        .contact-panel {
-            border: 2px solid var(--color-line);
-            border-radius: 28px;
-            background: rgba(255, 253, 248, 0.88);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .workflow-panel {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(300px, 320px);
-            gap: clamp(1rem, 2vw, 1.75rem);
-            padding: clamp(1.4rem, 3vw, 2.8rem);
-        }
-
-        .loop {
-            display: grid;
-            grid-template-columns: repeat(7, minmax(0, 1fr));
-            gap: clamp(0.85rem, 1.2vw, 1.1rem);
-            align-items: center;
-        }
-
-        .loop-step {
-            position: relative;
-            min-height: 112px;
-            padding: 0.85rem;
-            border: 1.5px solid rgba(85, 44, 183, 0.28);
-            border-radius: 18px;
-            background: rgba(243, 236, 250, 0.82);
-        }
-
-        .loop-step:not(:last-of-type)::after {
-            content: "";
-            position: absolute;
-            display: none;
-            top: 50%;
-            right: -0.68rem;
-            width: 0.62rem;
-            height: 0.62rem;
+        .section {
+            padding: clamp(4.5rem, 8vw, 7.5rem) 0;
             border-top: 2px solid var(--color-line);
-            border-right: 2px solid var(--color-line);
-            transform: translateY(-50%) rotate(45deg);
-            background: transparent;
         }
 
-        @media (min-width: 1320px) {
-            .loop-step:not(:last-of-type)::after {
-                display: block;
-            }
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 0.78fr) minmax(250px, 0.48fr);
+            gap: clamp(1.5rem, 7vw, 7rem);
+            align-items: start;
+            margin-bottom: clamp(2.5rem, 5vw, 4rem);
         }
 
-        .cycle-cue {
-            grid-column: 1 / -1;
-            justify-self: center;
-            position: relative;
-            margin-top: 0.25rem;
-            padding: 0.3rem 0.9rem;
-            border: 1.5px dashed rgba(85, 44, 183, 0.42);
-            border-radius: 999px;
-            background: rgba(255, 253, 248, 0.9);
-            color: var(--color-purple);
-            font-family: "Patrick Hand", "Comic Sans MS", cursive;
-            font-size: 1.15rem;
-            line-height: 1;
-        }
-
-        .cycle-cue::before {
-            content: "";
-            position: absolute;
-            left: -2.2rem;
-            top: 50%;
-            width: 1.6rem;
-            height: 1.1rem;
-            border-bottom: 2px solid var(--color-purple);
-            border-left: 2px solid var(--color-purple);
-            border-radius: 0 0 0 18px;
-            transform: translateY(-45%);
-        }
-
-        .loop-number {
-            color: var(--color-purple);
-            font-size: 0.76rem;
+        .section-heading h2,
+        .project-copy h2,
+        .contact-copy h2 {
+            max-width: 680px;
+            margin: 0;
+            font-size: clamp(2.45rem, 5vw, 4.7rem);
             font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            text-wrap: balance;
         }
 
-        .loop-step h3 {
-            margin-top: 0.35rem;
-            font-size: 1rem;
-        }
-
-        .loop-step p {
-            margin-top: 0.35rem;
+        .section-heading > p {
+            margin: 0.4rem 0 0;
             color: var(--color-muted);
-            font-size: 0.78rem;
-            font-weight: 600;
-            line-height: 1.35;
+            font-size: 1.04rem;
+            line-height: 1.65;
+            text-wrap: pretty;
         }
 
-        .loop-note {
+        .impact-list {
             display: grid;
-            align-content: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            border: 1.5px dashed rgba(8, 8, 13, 0.28);
-            border-radius: 20px;
-            background: rgba(255, 197, 103, 0.18);
         }
 
-        .loop-note strong {
-            font-size: 1.4rem;
-            line-height: 1.2;
-        }
-
-        .loop-note ul {
+        .impact-item {
             display: grid;
-            gap: 0.5rem;
-            padding-left: 1.15rem;
-            color: var(--color-muted);
-            font-weight: 600;
+            grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 5vw, 5rem);
+            padding: clamp(1.7rem, 3vw, 2.5rem) 0;
+            border-top: 1px solid var(--color-border);
         }
 
-        .labs-panel {
-            display: grid;
-            gap: 1rem;
-            padding: clamp(1.2rem, 2.6vw, 2rem);
+        .impact-item:last-child {
+            border-bottom: 1px solid var(--color-border);
         }
 
-        .lab-row {
-            display: grid;
-            grid-template-columns: 72px minmax(0, 1fr) auto;
-            gap: 1rem;
-            align-items: center;
-            padding: 1rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.12);
-            border-radius: 20px;
-            background: #ffffff;
+        .impact-item h3,
+        .experience-item h3,
+        .skill-row h3,
+        .project-copy h3 {
+            margin: 0;
+            font-size: clamp(1.25rem, 2vw, 1.6rem);
+            letter-spacing: -0.03em;
+            line-height: 1.13;
         }
 
-        .lab-icon {
-            display: grid;
-            place-items: center;
-            width: 58px;
-            height: 58px;
-            border: 2px solid var(--color-line);
-            border-radius: 18px;
-            background: var(--color-bg-lavender);
-            color: var(--color-purple);
-            font-weight: 700;
-        }
-
-        .lab-row h3 {
-            font-size: 1.2rem;
-        }
-
-        .lab-row p {
-            max-width: 760px;
-            color: var(--color-muted);
-            font-weight: 600;
-        }
-
-        .lab-status {
-            display: inline-flex;
-            align-items: center;
-            width: fit-content;
-            min-height: 32px;
-            padding: 0.4rem 0.65rem;
+        .impact-item h3::before {
+            display: block;
+            width: 2.5rem;
+            height: 0.5rem;
+            margin-bottom: 0.8rem;
             border-radius: 999px;
-            background: rgba(85, 44, 183, 0.12);
-            color: var(--color-purple);
-            font-size: 0.76rem;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .pipeline {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.75rem;
-        }
-
-        .pipeline span {
-            display: inline-flex;
-            align-items: center;
-            min-height: 30px;
-            padding: 0.35rem 0.55rem;
-            border: 1px solid rgba(8, 8, 13, 0.15);
-            border-radius: 999px;
-            background: rgba(255, 250, 242, 0.85);
-            color: var(--color-ink);
-            font-size: 0.74rem;
-            font-weight: 700;
-        }
-
-        .game-state-preview {
-            display: grid;
-            grid-template-columns: repeat(3, 34px);
-            grid-auto-rows: 34px;
-            width: max-content;
-            gap: 0.25rem;
-            margin-top: 0.85rem;
-            padding: 0.45rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.18);
-            border-radius: 14px;
-            background: rgba(243, 236, 250, 0.72);
-        }
-
-        .game-state-preview span {
-            display: grid;
-            place-items: center;
-            border: 1px solid rgba(8, 8, 13, 0.18);
-            border-radius: 9px;
-            background: #fffdf8;
-            color: var(--color-ink);
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .game-state-preview .active {
             background: var(--color-yellow);
+            content: "";
         }
 
-        .mini-pipeline {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.78rem;
-            margin-top: 0.85rem;
+        .impact-item:nth-child(2) h3::before {
+            background: var(--color-pink);
         }
 
-        .mini-pipeline span {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            min-height: 34px;
-            padding: 0.4rem 0.55rem;
-            border: 1.5px solid rgba(5, 140, 215, 0.28);
-            border-radius: 12px;
-            background: rgba(5, 140, 215, 0.08);
-            color: var(--color-ink);
-            font-size: 0.72rem;
-            font-weight: 700;
+        .impact-item:nth-child(3) h3::before {
+            background: var(--color-purple);
         }
 
-        .mini-pipeline span:not(:last-child)::after {
-            content: "->";
-            position: absolute;
-            top: 50%;
-            right: -1rem;
+        .impact-item p {
+            max-width: 710px;
+            margin: 0;
+            font-size: clamp(1rem, 1.5vw, 1.16rem);
+            line-height: 1.68;
+            text-wrap: pretty;
+        }
+
+        .public-note {
+            margin: 1.2rem 0 0;
             color: var(--color-muted);
-            font-weight: 700;
-            transform: translateY(-50%);
-        }
-
-        .about-panel {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-            gap: clamp(1.4rem, 3vw, 3rem);
-            padding: clamp(1.4rem, 3vw, 2.6rem);
-        }
-
-        .about-copy {
-            display: grid;
-            gap: 1rem;
-            color: var(--color-muted);
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        .about-points {
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .about-point {
-            padding: 1rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.12);
-            border-radius: 18px;
-            background: #ffffff;
-        }
-
-        .about-point h3 {
-            margin-bottom: 0.35rem;
-            font-size: 1rem;
-        }
-
-        .about-point p {
-            color: var(--color-muted);
-            font-size: 0.92rem;
-            font-weight: 600;
-        }
-
-        .experience-panel {
-            display: grid;
-            gap: 1rem;
-            padding: clamp(1.2rem, 2.6vw, 2rem);
-        }
-
-        .experience-card {
-            padding: 1rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.12);
-            border-radius: 18px;
-            background: #ffffff;
-        }
-
-        .experience-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .experience-card h3 {
-            font-size: 1.15rem;
-        }
-
-        .experience-company,
-        .experience-period {
-            color: var(--color-muted);
-            font-size: 0.92rem;
-            font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .experience-list {
             display: grid;
-            gap: 0.55rem;
-            padding-left: 1.15rem;
-            color: var(--color-muted);
-            font-weight: 600;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
-        .skills-grid,
-        .education-grid {
+        .experience-item {
+            position: relative;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
+            grid-template-columns: minmax(145px, 0.27fr) minmax(0, 1fr);
+            gap: clamp(1.35rem, 4vw, 4rem);
+            padding: 0 0 clamp(2.3rem, 4vw, 3.4rem);
         }
 
-        .skill-group,
-        .education-card {
-            padding: 1rem;
-            border: 1.5px solid rgba(8, 8, 13, 0.14);
-            border-radius: 18px;
-            background: rgba(255, 253, 248, 0.9);
+        .experience-item::before {
+            position: absolute;
+            top: 0.5rem;
+            bottom: -0.5rem;
+            left: 0.35rem;
+            width: 2px;
+            background: var(--color-border);
+            content: "";
         }
 
-        .skill-group h3,
-        .education-card h3 {
-            margin-bottom: 0.7rem;
-            font-size: 1rem;
+        .experience-item:last-child::before {
+            bottom: 0;
         }
 
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            min-height: 32px;
-            padding: 0.38rem 0.62rem;
-            border: 1px solid rgba(8, 8, 13, 0.13);
-            border-radius: 999px;
-            background: #ffffff;
+        .experience-period {
+            position: relative;
+            padding-left: 1.4rem;
             color: var(--color-muted);
-            font-size: 0.78rem;
+            font-size: 0.92rem;
             font-weight: 700;
         }
 
-        .contact-panel {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 2rem;
-            align-items: center;
-            padding: clamp(1.5rem, 4vw, 3rem);
-            margin-bottom: 3rem;
+        .experience-period::before {
+            position: absolute;
+            top: 0.25rem;
+            left: 0;
+            width: 0.78rem;
+            height: 0.78rem;
+            border: 2px solid var(--color-line);
+            border-radius: 50%;
+            background: var(--color-yellow);
+            content: "";
         }
 
-        .contact-panel h2 {
-            font-size: clamp(2rem, 3.4vw, 3.6rem);
-            line-height: 0.98;
-            letter-spacing: -0.055em;
+        .experience-item:nth-child(2) .experience-period::before {
+            background: var(--color-pink);
         }
 
-        .contact-panel p {
-            max-width: 720px;
-            margin-top: 0.9rem;
+        .experience-item:nth-child(3) .experience-period::before {
+            background: var(--color-blue);
+        }
+
+        .experience-company {
+            margin: 0.35rem 0 0;
+            color: var(--color-purple);
+            font-weight: 700;
+        }
+
+        .experience-copy {
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .experience-copy li {
+            position: relative;
+            max-width: 760px;
+            padding-left: 1.05rem;
             color: var(--color-muted);
-            font-size: 1.08rem;
-            font-weight: 600;
         }
 
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
+        .experience-copy li + li {
+            margin-top: 0.55rem;
+        }
+
+        .experience-copy li::before {
+            position: absolute;
+            top: 0.65rem;
+            left: 0;
+            width: 0.34rem;
+            height: 0.34rem;
+            border-radius: 50%;
+            background: var(--color-purple);
+            content: "";
+        }
+
+        .skills-section {
+            background: var(--color-soft);
+        }
+
+        .skills-section .inner,
+        .project-band .inner {
+            width: min(100% - 40px, var(--max-width));
+            margin: 0 auto;
+        }
+
+        .skills-section {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+            border-top: 2px solid var(--color-line);
+            border-bottom: 2px solid var(--color-line);
+        }
+
+        .skill-list {
+            border-top: 1px solid var(--color-border);
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.43fr) minmax(0, 1fr);
+            gap: clamp(1.5rem, 5vw, 5rem);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .skill-row h3 {
+            color: var(--color-purple);
+        }
+
+        .skill-row p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .project-band {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding: clamp(4.5rem, 9vw, 8.5rem) 0;
+            background: var(--color-purple);
+            color: #fff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.55fr);
+            gap: clamp(2rem, 8vw, 8rem);
+            align-items: end;
+        }
+
+        .project-copy h2 {
+            max-width: 660px;
+        }
+
+        .project-copy p {
+            max-width: 650px;
+            margin: 1.35rem 0 0;
+            font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+            line-height: 1.65;
+            text-wrap: pretty;
+        }
+
+        .project-links {
+            display: grid;
             gap: 0.8rem;
         }
 
-        .copy-toast {
-            position: fixed;
-            left: 50%;
-            bottom: 1.4rem;
-            z-index: 50;
-            min-width: 180px;
-            padding: 0.78rem 1rem;
-            border: 2px solid var(--color-line);
-            border-radius: 12px;
-            background: var(--color-ink);
-            color: #ffffff;
-            font-size: 0.92rem;
+        .project-links a {
+            display: block;
+            padding: 1.1rem 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            color: #fff;
+            font-size: 1.05rem;
             font-weight: 700;
-            text-align: center;
-            box-shadow: 6px 6px 0 rgba(8, 8, 13, 0.16);
-            opacity: 0;
-            pointer-events: none;
-            transform: translate(-50%, 0.6rem);
-            transition: opacity 160ms ease, transform 160ms ease;
+            text-decoration: none;
         }
 
-        .copy-toast.visible {
-            opacity: 1;
-            transform: translate(-50%, 0);
+        .project-links a:hover {
+            color: var(--color-yellow);
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(250px, 0.48fr);
+            gap: clamp(2rem, 8vw, 8rem);
+            padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+        }
+
+        .contact-copy h2 {
+            color: var(--color-purple);
+        }
+
+        .contact-copy p {
+            max-width: 655px;
+            margin: 1.4rem 0 0;
+            font-size: clamp(1.05rem, 1.6vw, 1.23rem);
+            line-height: 1.65;
+            text-wrap: pretty;
+        }
+
+        .contact-links {
+            display: grid;
+            align-content: center;
+            gap: 0.8rem;
+        }
+
+        .contact-links a {
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--color-line);
+            color: var(--color-ink);
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            color: var(--color-purple);
         }
 
         .footer {
-            padding: 2rem 0 3rem;
-            color: var(--color-muted);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
+            padding: 1.35rem 20px;
+            border-top: 2px solid var(--color-line);
+            background: var(--color-ink);
+            color: #fff;
         }
 
-        @media (max-width: 1180px) {
-            .site-nav {
-                width: min(100% - 32px, var(--max-width));
-            }
+        .footer p {
+            width: min(100%, var(--max-width));
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.88rem;
+        }
 
-            main {
-                width: min(100% - 32px, var(--max-width));
+        @media (max-width: 830px) {
+            .site-nav {
+                flex-wrap: wrap;
+                gap: 0.6rem 1.2rem;
+                padding: 0.85rem 0;
             }
 
             .nav-links {
-                gap: 0.9rem;
+                order: 3;
+                flex-basis: 100%;
+                justify-content: flex-start;
+                gap: 0.75rem 1.25rem;
+                overflow-x: auto;
+                padding-bottom: 0.15rem;
+            }
+
+            .hero,
+            .section-heading,
+            .project-grid,
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                gap: 2.5rem;
+            }
+
+            .hero-profile {
+                max-width: 460px;
+            }
+
+            .impact-item,
+            .skill-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .experience-item::before {
+                top: 2rem;
+            }
+
+            .experience-period {
+                padding-left: 1.45rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .site-nav,
+            main,
+            .skills-section .inner,
+            .project-band .inner {
+                width: min(100% - 28px, var(--max-width));
+            }
+
+            .nav-resume {
+                padding: 0.62rem 0.72rem;
+            }
+
+            .hero {
+                padding-top: 3.7rem;
+            }
+
+            .hero-title {
+                font-size: clamp(3.65rem, 20vw, 5.1rem);
+                line-height: 0.9;
+            }
+
+            .hero-actions {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .button-tertiary {
+                justify-content: flex-start;
+                width: auto;
+                padding-inline: 0;
+            }
+
+            .section-heading h2,
+            .project-copy h2,
+            .contact-copy h2 {
+                font-size: clamp(2.5rem, 14vw, 3.6rem);
             }
 
             .nav-links a {
                 font-size: 0.86rem;
             }
 
-            .hero {
-                grid-template-columns: 1fr;
-                min-height: auto;
-            }
-
-            .hero-copy {
-                max-width: 860px;
-            }
-
-            .hero-title {
-                max-width: 920px;
-                font-size: clamp(3.2rem, 5.4vw, 5.8rem);
-            }
-
-            .hero-aside-note {
-                margin-left: 0;
-            }
-
-            .hero-note-row {
-                margin-top: 0;
-            }
-
-            .evidence-grid,
-            .evidence-wall {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .system-strip {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .system-strip-title {
-                grid-column: 1 / -1;
-            }
-
-            .workflow-panel {
-                grid-template-columns: 1fr;
-            }
-
-            .loop {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
-
-            .loop-step:not(:last-of-type)::after {
-                display: none;
-            }
-        }
-
-        @media (max-width: 920px) {
-            .menu-toggle {
-                display: inline-block;
-            }
-
-            .site-nav {
-                align-items: center;
-            }
-
             .nav-links {
-                position: fixed;
-                top: 86px;
-                left: 16px;
-                right: 16px;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.1rem;
-                padding: 0.75rem;
-                border: 2px solid var(--color-line);
-                border-radius: 18px;
-                background: var(--color-panel);
-                box-shadow: var(--shadow-note);
-            }
-
-            .nav-open .nav-links {
-                display: flex;
-            }
-
-            .nav-links a {
-                justify-content: center;
-                min-height: 44px;
-            }
-
-            .nav-actions .nav-action {
-                display: none;
-            }
-
-            .practice-note,
-            .section-heading,
-            .about-panel,
-            .contact-panel {
-                grid-template-columns: 1fr;
-            }
-
-            .lab-row {
-                grid-template-columns: 58px minmax(0, 1fr);
-            }
-
-            .lab-status {
-                grid-column: 2;
-                justify-self: start;
-            }
-
-            .skills-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .site-nav::before {
-                height: 78px;
-            }
-
-            .site-nav {
-                padding: 0.9rem 0;
-            }
-
-            .brand-note {
-                display: none;
-            }
-
-            .hero {
-                gap: 1.15rem;
-                padding-top: 1.2rem;
-            }
-
-            .hero-title {
-                max-width: 100%;
-                font-size: clamp(2.25rem, 9.4vw, 3.5rem);
-                letter-spacing: -0.04em;
-            }
-
-            .hello-note {
-                margin-bottom: 0.55rem;
-            }
-
-            .hero-subcopy {
-                margin-top: 0.85rem;
-                font-size: 0.98rem;
-                line-height: 1.48;
-            }
-
-            .hero-actions {
-                align-items: stretch;
-                flex-direction: column;
-                gap: 0.55rem;
-                margin-top: 0.95rem;
-            }
-
-            .primary-button,
-            .secondary-button {
-                width: 100%;
-            }
-
-            .primary-button {
-                min-height: 42px;
-                padding: 0.86rem 1rem;
-            }
-
-            .secondary-button {
-                min-height: 32px;
-                padding: 0.35rem 0.6rem;
-            }
-
-            .system-board {
-                padding: 1rem;
-                border-radius: 24px;
-            }
-
-            .hero-note-row {
-                display: grid;
-                gap: 0.8rem;
-            }
-
-            .safety-chip {
-                align-items: flex-start;
-                width: 100%;
-            }
-
-            .board-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .evidence-grid,
-            .evidence-wall,
-            .system-strip,
-            .loop {
-                grid-template-columns: 1fr;
-            }
-
-            .cycle-cue {
-                justify-self: start;
-                margin-left: 1.8rem;
-            }
-
-            .mini-pipeline {
-                align-items: stretch;
-                flex-direction: column;
-            }
-
-            .mini-pipeline span:not(:last-child)::after {
-                right: auto;
-                left: 0.75rem;
-                top: calc(100% - 0.1rem);
-                transform: rotate(90deg);
-            }
-
-            .surface-frame {
-                min-height: 210px;
-            }
-
-            .surface-frame.checkout,
-            .surface-frame.renewal,
-            .surface-frame.states {
-                grid-template-columns: 1fr;
-            }
-
-            .checkout-body {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-links {
-                flex-direction: column;
-            }
-
-            .contact-links a {
-                width: 100%;
-            }
-
-            .copy-toast {
-                width: calc(100% - 32px);
+                gap: 0.65rem;
             }
         }
 
@@ -1679,708 +696,179 @@
             *::before,
             *::after {
                 scroll-behavior: auto !important;
-                transition: none !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="site-nav" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Shuhao Pang home">
-            <span class="brand-mark">SP<span>.</span></span>
-            <span class="brand-note">field notes</span>
-        </a>
-        <ul class="nav-links" id="primaryNav">
-            <li><a href="#systems">Selected Systems</a></li>
-            <li><a href="#ui-work">UI Work</a></li>
-            <li><a href="#ai-workflow">AI Loop</a></li>
-            <li><a href="#projects">Projects &amp; Labs</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <a class="nav-action" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
-            <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primaryNav" aria-expanded="false">
-                <span aria-hidden="true"></span>
-            </button>
-        </div>
-    </nav>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="brand" href="#top">Shuhao Pang<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#public-work">Public work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a class="nav-resume" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
+        </nav>
+    </header>
 
-    <main id="top">
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-copy">
-                <p class="hello-note">Hi, I'm Shuhao &middot; Senior Full-Stack Engineer</p>
-                <h1 class="hero-title" id="hero-title">
-                    I turn <span class="circle-mark">messy</span> workflows into <span class="scribble">product systems</span> people can trust.
-                </h1>
-                <p class="hero-subcopy">
-                    I'm a senior full-stack engineer building systems across membership, payments, portals, checkout, APIs, UI states, rollout, debugging, and AI-assisted engineering loops.
-                </p>
-                <div class="hero-actions" aria-label="Portfolio shortcuts">
-                    <a class="primary-button" href="#systems">See the systems <span aria-hidden="true">-&gt;</span></a>
-                    <a class="secondary-button" href="#ui-work"><span>View surfaces</span></a>
-                    <a class="secondary-button" href="#ai-workflow"><span>How I work</span></a>
-                </div>
-            </div>
-
-            <aside class="system-board" aria-label="A day in the system storyboard">
-                <div class="board-header">
-                    <h2 class="board-title">A day in the system</h2>
-                    <span class="board-date">field notes</span>
-                </div>
-                <div class="evidence-grid">
-                    <article class="evidence-card pink">
-                        <h3 class="evidence-title"><span>1</span> Membership rule conflict</h3>
-                        <p class="human-problem">Which benefits apply?</p>
-                        <div class="mini-ui" aria-label="Recreated membership surface">
-                            <strong>Benefits</strong>
-                            <div class="mini-line long"></div>
-                            <div class="mini-line medium"></div>
-                            <span class="mini-button">Status: check rules</span>
-                        </div>
-                        <p class="system-clue">Lifecycle rules, eligibility, permissions.</p>
-                        <p class="next-action">Show clear status or next step.</p>
-                    </article>
-
-                    <article class="evidence-card yellow">
-                        <h3 class="evidence-title"><span>2</span> Payment recovery</h3>
-                        <p class="human-problem">Did it fail or go through?</p>
-                        <div class="mini-ui" aria-label="Recreated payment recovery surface">
-                            <strong>Payment failed</strong>
-                            <div class="mini-line medium"></div>
-                            <span class="mini-button purple">Retry payment</span>
-                        </div>
-                        <p class="system-clue">Provider event, retry state, recovery path.</p>
-                        <p class="next-action">Retry, update method, or confirm.</p>
-                    </article>
-
-                    <article class="evidence-card blue">
-                        <h3 class="evidence-title"><span>3</span> Portal / Checkout state</h3>
-                        <p class="human-problem">Am I done?</p>
-                        <div class="mini-ui" aria-label="Recreated checkout state surface">
-                            <strong>Review order</strong>
-                            <div class="stepper" aria-hidden="true">
-                                <span class="step active"></span>
-                                <span class="step active"></span>
-                                <span class="step"></span>
-                                <span class="step"></span>
-                            </div>
-                            <span class="mini-button blue">Continue</span>
-                        </div>
-                        <p class="system-clue">Validation, order state, payment status.</p>
-                        <p class="next-action">Complete, recover, or continue.</p>
-                    </article>
-
-                    <article class="evidence-card green">
-                        <h3 class="evidence-title"><span>4</span> Support visibility</h3>
-                        <p class="human-problem">Who can help me?</p>
-                        <div class="mini-ui" aria-label="Recreated support visibility surface">
-                            <strong>Support view</strong>
-                            <div class="mini-line long"></div>
-                            <span class="mini-button green">Context available</span>
-                        </div>
-                        <p class="system-clue">User state, support context, activity trail.</p>
-                        <p class="next-action">Faster support, clearer resolution.</p>
-                    </article>
-                </div>
-                <p class="board-footer">Human problem first. Product surface second. System depth third.</p>
-            </aside>
-
-            <div class="hero-note-row">
-                <div class="safety-chip">
-                    <span class="safety-icon" aria-hidden="true">OK</span>
-                    <span>All UI work is recreated and anonymized. No real company UI or sensitive data.</span>
-                </div>
-                <p class="hero-aside-note hand-note">Systems are about people.</p>
-            </div>
-        </section>
-
-        <section class="practice-note" aria-label="Practice note">
-            <p class="annotation">What I care about</p>
-            <p>I connect product intent, system behavior, and user-facing experience so complex workflows become clear, recoverable, and supportable.</p>
-        </section>
-
-        <section class="section-block" id="systems" aria-labelledby="systems-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">proof, not just roles</p>
-                    <h2 class="section-title" id="systems-title">Selected Systems</h2>
-                </div>
-                <p class="section-copy">
-                    Public-safe system stories focused on product decisions, behavior patterns, and user outcomes. Internal architecture, proprietary logic, and sensitive implementation details stay out.
-                </p>
-            </div>
-
-            <div class="story-stack">
-                <article class="system-strip">
-                    <div class="system-strip-title">
-                        <span class="system-icon" aria-hidden="true">MP</span>
-                        <h3>Membership Platform</h3>
-                    </div>
-                    <div class="story-cell observation">
-                        <span class="story-label">Observation</span>
-                        <p>Benefits, seats, renewals, and permissions can confuse users fast.</p>
-                    </div>
-                    <div class="story-cell decision">
-                        <span class="story-label">Product + Engineering Decision</span>
-                        <p>Expose status and next actions before asking users to guess.</p>
-                    </div>
-                    <div class="story-cell system">
-                        <span class="story-label">System behind it</span>
-                        <p>Lifecycle rules, eligibility checks, entitlement state, rollout paths.</p>
-                    </div>
-                    <div class="story-cell outcome">
-                        <span class="story-label">Outcome</span>
-                        <p>Clearer member self-service and fewer support-heavy dead ends.</p>
-                    </div>
-                </article>
-
-                <article class="system-strip">
-                    <div class="system-strip-title">
-                        <span class="system-icon" aria-hidden="true">PI</span>
-                        <h3>Payment Infrastructure</h3>
-                    </div>
-                    <div class="story-cell observation">
-                        <span class="story-label">Observation</span>
-                        <p>Declines, retries, and delayed events create anxiety and ambiguity.</p>
-                    </div>
-                    <div class="story-cell decision">
-                        <span class="story-label">Product + Engineering Decision</span>
-                        <p>Make recovery visible and explain what happened in plain language.</p>
-                    </div>
-                    <div class="story-cell system">
-                        <span class="story-label">System behind it</span>
-                        <p>Provider events, transaction state, idempotency, audit trails.</p>
-                    </div>
-                    <div class="story-cell outcome">
-                        <span class="story-label">Outcome</span>
-                        <p>More reliable payment flows and clearer support investigation paths.</p>
-                    </div>
-                </article>
-
-                <article class="system-strip">
-                    <div class="system-strip-title">
-                        <span class="system-icon" aria-hidden="true">PC</span>
-                        <h3>Member Portal / Checkout</h3>
-                    </div>
-                    <div class="story-cell observation">
-                        <span class="story-label">Observation</span>
-                        <p>Users need to know where they are, what changed, and what is next.</p>
-                    </div>
-                    <div class="story-cell decision">
-                        <span class="story-label">Product + Engineering Decision</span>
-                        <p>Show progress, validation, recovery, and confirmation at every step.</p>
-                    </div>
-                    <div class="story-cell system">
-                        <span class="story-label">System behind it</span>
-                        <p>API contracts, UI states, permissions, order state, payment status.</p>
-                    </div>
-                    <div class="story-cell outcome">
-                        <span class="story-label">Outcome</span>
-                        <p>More confident users, cleaner handoffs, and supportable workflows.</p>
-                    </div>
-                </article>
-            </div>
-            <p class="section-note">Public-safe system stories. Patterns, decisions, and outcomes only &mdash; sensitive implementation details omitted.</p>
-        </section>
-
-        <section class="section-block" id="ui-work" aria-labelledby="ui-work-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">recreated evidence</p>
-                    <h2 class="section-title" id="ui-work-title">Interface Evidence Wall</h2>
-                </div>
-                <p class="section-copy">
-                    Recreated, simplified, and anonymized mini-surfaces showing user flows and system complexity. Not company screenshots.
-                </p>
-            </div>
-
-            <div class="evidence-wall">
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">1</span> Member Portal Dashboard</h3>
-                    <div class="surface-frame dashboard">
-                        <strong>Welcome back</strong>
-                        <div class="surface-grid">
-                            <div class="surface-stat">
-                                <div class="surface-label">Membership</div>
-                                <div class="surface-number">Active</div>
-                            </div>
-                            <div class="surface-stat">
-                                <div class="surface-label">Next billing</div>
-                                <div class="surface-number">May 24</div>
-                            </div>
-                            <div class="surface-stat">
-                                <div class="surface-label">Open access</div>
-                                <div class="surface-number">2</div>
-                            </div>
-                        </div>
-                        <div class="surface-row"><span>Recent activity</span><span>View all</span></div>
-                    </div>
-                    <p class="surface-annotation">make the next action obvious</p>
-                </article>
-
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">2</span> Membership Detail Page</h3>
-                    <div class="surface-frame detail">
-                        <div class="surface-rail" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="detail-stack">
-                            <strong>Team Plan <span class="status-pill">Active</span></strong>
-                            <div class="surface-row"><span>Seats</span><span>3 / 3</span></div>
-                            <div class="surface-row"><span>Renews</span><span>May 24</span></div>
-                            <div class="surface-row"><span>Benefits</span><span>Included</span></div>
-                        </div>
-                    </div>
-                    <p class="surface-annotation">show limits before renewal</p>
-                </article>
-
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">3</span> Checkout Flow</h3>
-                    <div class="surface-frame checkout">
-                        <div class="stepper" aria-hidden="true">
-                            <span class="step active"></span>
-                            <span class="step active"></span>
-                            <span class="step active"></span>
-                            <span class="step"></span>
-                        </div>
-                        <strong>Review your order</strong>
-                        <div class="checkout-body">
-                            <div class="surface-panel" aria-hidden="true"></div>
-                            <div class="surface-panel" aria-hidden="true"></div>
-                        </div>
-                        <span class="mini-button blue">Place order</span>
-                    </div>
-                    <p class="surface-annotation">show status before asking for payment</p>
-                </article>
-
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">4</span> Payment Method Management</h3>
-                    <div class="surface-frame payments">
-                        <strong>Payment methods</strong>
-                        <div class="card-row"><span class="card-brand">VISA</span><span>ending 4242</span><span class="status-pill">Primary</span></div>
-                        <div class="card-row"><span class="card-brand">AMEX</span><span>ending 1005</span><span>...</span></div>
-                        <div class="card-row"><span class="card-brand">MC</span><span>ending 8888</span><span>...</span></div>
-                    </div>
-                    <p class="surface-annotation">default is safe, changes are clear</p>
-                </article>
-
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">5</span> Renewal / Upgrade Flow</h3>
-                    <div class="surface-frame renewal">
-                        <div class="plan-panel">
-                            <strong>Current plan</strong>
-                            <div class="mini-line medium"></div>
-                            <div class="mini-line short"></div>
-                        </div>
-                        <span class="plan-arrow" aria-hidden="true">-&gt;</span>
-                        <div class="plan-panel">
-                            <strong>New plan</strong>
-                            <div class="mini-line long"></div>
-                            <div class="mini-line medium"></div>
-                            <span class="mini-button purple">Review</span>
-                        </div>
-                    </div>
-                    <p class="surface-annotation">compare, then commit</p>
-                </article>
-
-                <article class="surface-card">
-                    <h3 class="surface-title"><span class="surface-index">6</span> Validation / Error / Loading States</h3>
-                    <div class="surface-frame states">
-                        <div class="state-box">
-                            <strong>Validation</strong>
-                            <div class="mini-line long"></div>
-                            <span class="mini-button">Fix field</span>
-                        </div>
-                        <div class="state-box error">
-                            <strong>Error</strong>
-                            <p class="surface-label">Payment could not process.</p>
-                            <span class="mini-button">Try again</span>
-                        </div>
-                        <div class="state-box">
-                            <strong>Loading</strong>
-                            <span class="spinner" aria-hidden="true"></span>
-                        </div>
-                    </div>
-                    <p class="surface-annotation">recovery path, not dead end</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="section-block" id="ai-workflow" aria-labelledby="ai-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">the loop I live in</p>
-                    <h2 class="section-title" id="ai-title">AI-Assisted Engineering Loop</h2>
-                </div>
-                <p class="section-copy">
-                    AI is part of my engineering loop, not the headline. It helps tighten planning, implementation, review, testing, debugging, and refactoring while judgment stays human.
-                </p>
-            </div>
-
-            <div class="workflow-panel">
-                <div class="loop" aria-label="AI-assisted engineering loop">
-                    <article class="loop-step">
-                        <span class="loop-number">01</span>
-                        <h3>Notice</h3>
-                        <p>Spot friction, ambiguity, and risk.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">02</span>
-                        <h3>Plan</h3>
-                        <p>Name assumptions and split the work.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">03</span>
-                        <h3>Build</h3>
-                        <p>Ship small, reviewable slices.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">04</span>
-                        <h3>Test</h3>
-                        <p>Exercise states, failures, and flows.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">05</span>
-                        <h3>Review</h3>
-                        <p>Inspect diffs, behavior, and copy.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">06</span>
-                        <h3>Debug</h3>
-                        <p>Trace where reality diverged.</p>
-                    </article>
-                    <article class="loop-step">
-                        <span class="loop-number">07</span>
-                        <h3>Refactor</h3>
-                        <p>Simplify without losing behavior.</p>
-                    </article>
-                    <div class="cycle-cue">next cycle: Refactor -&gt; Notice</div>
-                </div>
-                <aside class="loop-note">
-                    <strong>AI speeds up the loop. Judgment stays human.</strong>
-                    <ul>
-                        <li>Workflow design: make the path explicit.</li>
-                        <li>Harness engineering: build repeatable checks.</li>
-                        <li>Loop engineering: measure, learn, improve.</li>
-                    </ul>
-                </aside>
-            </div>
-        </section>
-
-        <section class="section-block" id="projects" aria-labelledby="projects-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">labs and explorations</p>
-                    <h2 class="section-title" id="projects-title">Projects &amp; Labs</h2>
-                </div>
-                <p class="section-copy">
-                    Public projects and planned labs where I explore interaction states, product loops, recommendation workflows, and small systems outside proprietary work.
-                </p>
-            </div>
-
-            <div class="labs-panel">
-                <article class="lab-row">
-                    <div class="lab-icon" aria-hidden="true">GH</div>
-                    <div>
-                        <h3>Games Hub</h3>
-                        <p>Browser-based games and puzzles with game-state logic, notes, timers, progress, and lightweight interaction systems.</p>
-                        <div class="pipeline" aria-label="Games Hub focus areas">
-                            <span>Game logic</span>
-                            <span>Interaction states</span>
-                            <span>Browser UI</span>
-                            <span>Play history</span>
-                        </div>
-                        <div class="game-state-preview" aria-hidden="true">
-                            <span class="active">8</span>
-                            <span>3</span>
-                            <span></span>
-                            <span></span>
-                            <span class="active">5</span>
-                            <span>1</span>
-                            <span>2</span>
-                            <span></span>
-                            <span class="active">9</span>
-                        </div>
-                    </div>
-                    <a class="lab-status" href="https://games.shuhao-pang.com" target="_blank" rel="noopener noreferrer">Play Games</a>
-                </article>
-
-                <article class="lab-row">
-                    <div class="lab-icon" aria-hidden="true">AI</div>
-                    <div>
-                        <h3>AI-Assisted Music Discovery Engine</h3>
-                        <p>A planned lab for taste modeling, recommendation loops, listening notes, and human-in-the-loop discovery workflows.</p>
-                        <div class="mini-pipeline" aria-label="Music discovery pipeline">
-                            <span>Listening intent</span>
-                            <span>Taste profile</span>
-                            <span>Retrieval</span>
-                            <span>Ranking</span>
-                            <span>Feedback</span>
-                        </div>
-                    </div>
-                    <span class="lab-status">In Progress / Planned</span>
-                </article>
-            </div>
-        </section>
-
-        <section class="section-block" id="about" aria-labelledby="about-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">the fuller note</p>
-                    <h2 class="section-title" id="about-title">About</h2>
-                </div>
-                <p class="section-copy">
-                    I'm a senior full-stack engineer who works in the messy middle where user intent, API boundaries, lifecycle rules, payment state, permissions, rollout, debugging, and support all meet.
-                </p>
-            </div>
-
-            <div class="about-panel">
-                <div class="about-copy">
-                    <p>I care about product systems because the user only sees the surface, but trust is shaped by everything underneath: data flow, validation, permissions, retries, failure recovery, and whether support can understand what happened.</p>
-                    <p>My strongest public-safe themes are membership platforms, payment infrastructure, and portal / checkout workflows, but the broader practice is connecting product intent to reliable system behavior and clear user-facing states.</p>
-                    <p>I am also developing an AI-assisted engineering practice that helps me plan, test, review, debug, and refactor with tighter feedback loops while keeping human judgment responsible for product quality.</p>
-                </div>
-                <div class="about-points">
-                    <article class="about-point">
-                        <h3>Human problem first</h3>
-                        <p>What is confusing, blocked, risky, or hard to support?</p>
-                    </article>
-                    <article class="about-point">
-                        <h3>Product surface second</h3>
-                        <p>What should the user see, understand, and do next?</p>
-                    </article>
-                    <article class="about-point">
-                        <h3>System depth third</h3>
-                        <p>What state, API contract, permission, rollout, or debugging path makes it reliable?</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-block" id="experience" aria-labelledby="experience-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">timeline evidence</p>
-                    <h2 class="section-title" id="experience-title">Experience</h2>
-                </div>
-                <p class="section-copy">
-                    Experience supports the portfolio story. The main proof lives in systems, surfaces, and workflow patterns rather than job titles alone.
-                </p>
-            </div>
-
-            <div class="experience-panel">
-                <article class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Senior Software Engineer</h3>
-                            <p class="experience-company">Anchor Operating System</p>
-                        </div>
-                        <span class="experience-period">Jan. 2024 - Present</span>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Led full-stack product systems work across membership, payment, portal, and checkout domains in high-volume commerce environments.</li>
-                        <li>Translated product requirements into API behavior, data flow, UI states, rollout plans, and production debugging paths.</li>
-                        <li>Improved payment and subscription workflows with a focus on recoverable failures, operational visibility, and supportable user experiences.</li>
-                    </ul>
-                </article>
-
-                <article class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Full-Stack Software Engineer</h3>
-                            <p class="experience-company">Anchor Operating System</p>
-                        </div>
-                        <span class="experience-period">Jan. 2022 - Jan. 2024</span>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Built and maintained user-facing commerce and membership workflows across frontend surfaces, APIs, and operational tooling.</li>
-                        <li>Worked through validation, permissions, loading, error, empty, upgrade, renewal, and checkout states that shape user trust.</li>
-                        <li>Partnered across product and engineering to make ambiguous workflow behavior easier to reason about and ship safely.</li>
-                    </ul>
-                </article>
-
-                <article class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Software Engineer</h3>
-                            <p class="experience-company">Earlier product and engineering roles</p>
-                        </div>
-                        <span class="experience-period">2019 - 2021</span>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Developed full-stack web features, integrations, and user workflows across product-facing applications.</li>
-                        <li>Built a foundation in API design, frontend state, data modeling, debugging, and cross-functional delivery.</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
-        <section class="section-block" id="skills" aria-labelledby="skills-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">tools and patterns</p>
-                    <h2 class="section-title" id="skills-title">Skills</h2>
-                </div>
-                <p class="section-copy">
-                    The stack matters because it connects product surfaces to system behavior. The practice matters because those pieces need to stay understandable.
-                </p>
-            </div>
-
-            <div class="skills-grid">
-                <article class="skill-group">
-                    <h3>Product Systems</h3>
-                    <div class="tag-list">
-                        <span class="tag">API Design</span>
-                        <span class="tag">Data Flow</span>
-                        <span class="tag">Permissions</span>
-                        <span class="tag">Rollout Planning</span>
-                        <span class="tag">Debugging</span>
-                        <span class="tag">Reliability</span>
-                    </div>
-                </article>
-                <article class="skill-group">
-                    <h3>Frontend</h3>
-                    <div class="tag-list">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">React</span>
-                        <span class="tag">UI States</span>
-                        <span class="tag">Accessibility</span>
-                    </div>
-                </article>
-                <article class="skill-group">
-                    <h3>Backend</h3>
-                    <div class="tag-list">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">APIs</span>
-                        <span class="tag">Payment Flows</span>
-                        <span class="tag">Async State</span>
-                        <span class="tag">Observability</span>
-                    </div>
-                </article>
-                <article class="skill-group">
-                    <h3>AI-Assisted Engineering</h3>
-                    <div class="tag-list">
-                        <span class="tag">Planning</span>
-                        <span class="tag">Review</span>
-                        <span class="tag">Testing</span>
-                        <span class="tag">Debugging</span>
-                        <span class="tag">Refactoring</span>
-                        <span class="tag">Harness Design</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="section-block" id="education" aria-labelledby="education-title">
-            <div class="section-heading">
-                <div>
-                    <p class="section-kicker">background</p>
-                    <h2 class="section-title" id="education-title">Education &amp; Languages</h2>
-                </div>
-                <p class="section-copy">A compact reference section for formal background and communication range.</p>
-            </div>
-
-            <div class="education-grid">
-                <article class="education-card">
-                    <h3>Education</h3>
-                    <p>Computer science and software engineering background, with professional focus on product engineering and full-stack systems.</p>
-                </article>
-                <article class="education-card">
-                    <h3>Languages</h3>
-                    <p>English and Mandarin Chinese.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="contact-panel" id="contact" aria-labelledby="contact-title">
+    <main id="main-content">
+        <section class="hero" id="top" aria-labelledby="hero-title">
             <div>
-                <h2 id="contact-title">Want to talk systems?</h2>
-                <p>I am interested in product engineering roles where the work spans user experience, system design, reliability, and real production workflows.</p>
+                <h1 class="hero-title" id="hero-title">Shuhao Pang</h1>
+                <p class="hero-role">Senior Full-Stack Engineer</p>
+                <p class="hero-lede">I build membership, payments, and checkout systems. My work moves between product surfaces, APIs, and cloud infrastructure.</p>
+                <div class="hero-actions" aria-label="Contact shortcuts">
+                    <a class="button button-primary" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">View resume</a>
+                    <a class="button button-secondary" href="https://www.linkedin.com/in/shuhao-pang/" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a class="button button-tertiary" href="mailto:shuhaopang.portia@gmail.com">Email me</a>
+                </div>
             </div>
-            <div class="contact-links">
-                <a class="primary-button email-copy-link" href="mailto:shuhaopang.portia@gmail.com" data-email="shuhaopang.portia@gmail.com">Email me</a>
-                <a class="nav-action" href="https://www.linkedin.com/in/shuhao-pang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="nav-action" href="https://github.com/portiaPangsh" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="nav-action" href="Resume_Shuhao_Pang.pdf" download="Shuhao_Pang_Resume.pdf">Resume</a>
+            <aside class="hero-profile" aria-label="Profile details">
+                <dl>
+                    <div>
+                        <dt>Based in</dt>
+                        <dd>Los Angeles, California</dd>
+                    </div>
+                    <div>
+                        <dt>Focus</dt>
+                        <dd>Membership, payments, and commerce</dd>
+                    </div>
+                    <div>
+                        <dt>Working across</dt>
+                        <dd>React, Node.js, TypeScript, and AWS</dd>
+                    </div>
+                    <div>
+                        <dt>Also known as</dt>
+                        <dd>Portia</dd>
+                    </div>
+                </dl>
+            </aside>
+        </section>
+
+        <section class="section" id="impact" aria-labelledby="impact-title">
+            <div class="section-heading">
+                <h2 id="impact-title">Selected impact</h2>
+                <p>These are public-safe summaries of the work I have done. They focus on the problems, decisions, and outcomes rather than proprietary implementation details.</p>
+            </div>
+            <div class="impact-list">
+                <article class="impact-item">
+                    <h3>Membership platform</h3>
+                    <p>I built a multi-tenant membership platform for tourism and cultural organizations. It covers purchases, renewals, benefits, eligibility, and the account states that members and support teams need to understand.</p>
+                </article>
+                <article class="impact-item">
+                    <h3>Payments and subscriptions</h3>
+                    <p>I worked on payment and subscription flows across multiple providers. The work included webhook processing, retries, refunds, recovery paths, and the operational tools people use when a payment does not go as planned.</p>
+                </article>
+                <article class="impact-item">
+                    <h3>Checkout and operations</h3>
+                    <p>I shipped checkout, cart, and transaction workflows that connect frontend state to APIs, asynchronous jobs, and production support. I also wrote integration tests and delivery tooling around the flows that carry the most risk.</p>
+                </article>
+            </div>
+            <p class="public-note">Details are intentionally high level. I do not publish proprietary code or internal architecture.</p>
+        </section>
+
+        <section class="section" id="experience" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <h2 id="experience-title">Experience</h2>
+                <p>I have worked across product features, platform behavior, and the operations that follow a release. My current work is concentrated in membership, payments, and commerce.</p>
+            </div>
+            <ol class="experience-list">
+                <li class="experience-item">
+                    <p class="experience-period">2024 - Present</p>
+                    <article>
+                        <h3>Senior Software Engineer</h3>
+                        <p class="experience-company">Anchor Operating System</p>
+                        <ul class="experience-copy">
+                            <li>Lead full-stack work across membership, payments, checkout, and revenue operations.</li>
+                            <li>Take ambiguous product problems through API contracts, data models, UI states, rollout, and production debugging.</li>
+                        </ul>
+                    </article>
+                </li>
+                <li class="experience-item">
+                    <p class="experience-period">2022 - 2024</p>
+                    <article>
+                        <h3>Software Engineer II</h3>
+                        <p class="experience-company">Anchor Operating System</p>
+                        <ul class="experience-copy">
+                            <li>Built customer-facing commerce flows and the services behind them.</li>
+                            <li>Worked on cart changes, price integrations, validation, permissions, and automated test coverage.</li>
+                        </ul>
+                    </article>
+                </li>
+                <li class="experience-item">
+                    <p class="experience-period">2021 - 2022</p>
+                    <article>
+                        <h3>Software Engineer</h3>
+                        <p class="experience-company">Anchor Operating System</p>
+                        <ul class="experience-copy">
+                            <li>Built booking and itinerary features for customer-facing applications.</li>
+                            <li>Helped establish end-to-end testing for core services and SDK components.</li>
+                        </ul>
+                    </article>
+                </li>
+            </ol>
+        </section>
+
+        <section class="skills-section" id="skills" aria-labelledby="skills-title">
+            <div class="inner">
+                <div class="section-heading">
+                    <h2 id="skills-title">Technical scope</h2>
+                    <p>The tools matter because they are the parts I use to make a product work in production. I keep the list focused on the work I want to keep doing.</p>
+                </div>
+                <div class="skill-list">
+                    <article class="skill-row">
+                        <h3>Frontend</h3>
+                        <p>React, TypeScript, JavaScript, HTML, CSS, accessible UI, and complex interface states.</p>
+                    </article>
+                    <article class="skill-row">
+                        <h3>Backend and APIs</h3>
+                        <p>Node.js, REST, GraphQL, service integrations, asynchronous workflows, and payment flows.</p>
+                    </article>
+                    <article class="skill-row">
+                        <h3>Cloud and data</h3>
+                        <p>AWS Lambda, DynamoDB, SQS, S3, AppSync, Terraform, multi-tenant systems, and schema design.</p>
+                    </article>
+                    <article class="skill-row">
+                        <h3>Engineering practice</h3>
+                        <p>Integration testing, observability, rollout planning, incident investigation, and production debugging.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-band" id="public-work" aria-labelledby="public-work-title">
+            <div class="inner project-grid">
+                <div class="project-copy">
+                    <h2 id="public-work-title">Public work</h2>
+                    <p>Outside my day-to-day work, I build small browser games and keep experiments in public. This is where I share work that can be inspected directly.</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://games.shuhao-pang.com" target="_blank" rel="noreferrer">Visit Games Hub</a>
+                    <a href="https://github.com/portiaPangsh" target="_blank" rel="noreferrer">Browse GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="contact-copy">
+                <h2 id="contact-title">Get in touch</h2>
+                <p>I am interested in senior full-stack roles where I can own meaningful product work and stay close to the systems that support it.</p>
+            </div>
+            <div class="contact-links" aria-label="Contact links">
+                <a href="mailto:shuhaopang.portia@gmail.com">shuhaopang.portia@gmail.com</a>
+                <a href="https://www.linkedin.com/in/shuhao-pang/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/portiaPangsh" target="_blank" rel="noreferrer">GitHub</a>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Shuhao Pang. Product systems portfolio, built as a lightweight static site.</p>
+        <p>© 2026 Shuhao Pang. Built as a small static site.</p>
     </footer>
-
-    <div class="copy-toast" role="status" aria-live="polite" aria-atomic="true">Email copied</div>
-
-    <script>
-        const nav = document.querySelector('.site-nav');
-        const menuButton = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const emailCopyLink = document.querySelector('.email-copy-link');
-        const copyToast = document.querySelector('.copy-toast');
-        let copyToastTimer;
-
-        menuButton.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('nav-open');
-            menuButton.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        navLinks.forEach((link) => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('nav-open');
-                menuButton.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        const showCopyToast = (message) => {
-            copyToast.textContent = message;
-            copyToast.classList.add('visible');
-            window.clearTimeout(copyToastTimer);
-            copyToastTimer = window.setTimeout(() => {
-                copyToast.classList.remove('visible');
-            }, 1800);
-        };
-
-        const copyText = async (text) => {
-            if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(text);
-                return;
-            }
-
-            const helper = document.createElement('textarea');
-            helper.value = text;
-            helper.setAttribute('readonly', '');
-            helper.style.position = 'fixed';
-            helper.style.top = '-999px';
-            document.body.appendChild(helper);
-            helper.focus();
-            helper.select();
-            const didCopy = document.execCommand('copy');
-            document.body.removeChild(helper);
-
-            if (!didCopy) {
-                throw new Error('Copy command failed');
-            }
-        };
-
-        emailCopyLink.addEventListener('click', async (event) => {
-            event.preventDefault();
-            const email = emailCopyLink.dataset.email;
-
-            try {
-                await copyText(email);
-                showCopyToast('Email copied');
-            } catch (error) {
-                window.location.href = emailCopyLink.href;
-            }
-        });
-    </script>
 </body>
 </html>
